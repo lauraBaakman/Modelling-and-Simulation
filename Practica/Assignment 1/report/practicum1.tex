@@ -1,0 +1,89 @@
+\documentclass[twoside, a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{a4wide}
+
+% Fonts
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\linespread{1.05}
+\usepackage{microtype}
+\usepackage{lettrine}
+
+% References
+\usepackage{varioref}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% Document layout
+% \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry}
+\usepackage{multicol}
+\usepackage{paralist}
+
+% Floats
+\usepackage{float}
+
+%Plaatjes
+\usepackage{graphicx}
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage{subcaption}
+
+% Tables
+\usepackage{booktabs}
+
+% Custom section headers
+\usepackage{titlesec}
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\Roman{subsection}}
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
+
+
+%Wiskunde
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% References
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{csquotes}
+\bibliography{biblio}
+
+% Temp
+\usepackage{todonotes}
+
+% Math commands
+\newcommand{\normal}[2]{\ensuremath{\mathcal{N}\left(#1,\, #2\right)}}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+% Other commands
+\renewcommand{\t}[1]{\texttt{#1}}
+
+\title{Modelling and Simulation\\Practical Assignment I: The Chirikov map}
+\author{Rick van Veen (s1883933) \and Laura Baakman (s1869140)}
+
+\begin{document}
+
+\maketitle
+
+% \todo[inline]{Use compactitem environment for lists}
+
+\begin{multicols}{2}
+
+\section{Introduction}
+\input{intro.tex}
+	
+\section{Method}
+\input{method.tex}	
+
+\section{Experiments}
+\input{experiment.tex}	
+
+\section{Conclusion}
+\input{conclusion.tex}
+
+\printbibliography
+
+\end{multicols}
+\end{document}
