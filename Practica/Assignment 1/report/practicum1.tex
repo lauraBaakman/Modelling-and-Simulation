@@ -1,4 +1,4 @@
-\documentclass[twoside, a4paper]{article}
+\documentclass[twoside, a4paper, twocolumn]{article}
 \usepackage[english]{babel}
 \usepackage{a4wide}
 
@@ -16,7 +16,7 @@
 
 % Document layout
 % \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry}
-\usepackage{multicol}
+% \usepackage{multicol}
 \usepackage{paralist}
 
 % Floats
@@ -37,13 +37,13 @@
 \titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}
 \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
 
-
 %Wiskunde
-\usepackage{siunitx}
+\usepackage[scientific-notation=true, round-mode=figures, round-precision=3]{siunitx}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+
 
 % References
 \usepackage[backend=bibtex]{biblatex}
@@ -69,9 +69,7 @@
 
 % \todo[inline]{Use compactitem environment for lists}
 
-\begin{multicols}{2}
-
-\section{Introduction}	
+\section{Introduction}
 \input{intro.tex}
 
 \section{Experiments}
@@ -82,5 +80,4 @@
 
 \printbibliography
 
-\end{multicols}
 \end{document}
