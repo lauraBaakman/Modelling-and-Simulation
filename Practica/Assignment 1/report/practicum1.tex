@@ -24,8 +24,10 @@
 %Plaatjes
 \usepackage{tikz}
 \usepackage{graphicx}
-\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up, justification=raggedright]{caption}
 \usepackage{subcaption}
+\DeclareCaptionLabelFormat{opening}{(#2)}
+\captionsetup{subrefformat=opening}
 
 % Tables
 \usepackage{booktabs}
@@ -64,6 +66,8 @@
 \author{Rick van Veen (s1883933) \and Laura Baakman (s1869140)}
 
 \begin{document}
+
+
 
 \maketitle
 
