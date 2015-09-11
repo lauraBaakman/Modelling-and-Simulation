@@ -1,31 +1,8 @@
 %!TEX root = practicum1.tex
 
-\subsection{Fixed $K$}
+\subsection[]{Fixed $K$}
 
 
-\begin{figure}
-	\centering
-	% \x/\picname in {4/pic1.png,8/pic2.png,15/pic3.png,16/pic4.png}
-	\foreach \dim/\x/\p in {0/0.500/0.500, 1/0.1576131/0.9705928, 2/0.1269868/0.9133759}
-	{ 
-		\begin{subfigure}[t]{0.32\textwidth}
-			\includegraphics[width=\textwidth]{./img/assignment_a_\dim_dim.pdf}
-			\caption{$x_0=\num{\x}$, $p_0=\num{\p}$}
-			\label{fig:experiment:dimension:\dim}
-		\end{subfigure}
-		\begin{subfigure}[t]{0.32\textwidth}
-			\includegraphics[width=\textwidth]{./img/assignment_a_\dim_dim_progression_p.pdf}
-			\caption{Progression of $p$ in \subref{fig:experiment:dimension:\dim}}
-			\label{fig:experiment:dimension:\dim:x}
-		\end{subfigure}		
-		\begin{subfigure}[t]{0.32\textwidth}
-			\includegraphics[width=\textwidth]{./img/assignment_a_\dim_dim_progression_x.pdf}
-			\caption{Progression of $x$}
-			\label{fig:experiment:dimension:\dim:p}
-		\end{subfigure}		
-	}
-	\caption{}
-	\label{fig:experiment:dimension}
-\end{figure}
+\input{experiment_a_images.tex}
 
-\subsection{Variable $K$}
+\subsection[]{Variable $K$}
