@@ -16,13 +16,13 @@
 
 % Document layout
 % \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry}
-% \usepackage{multicol}
 \usepackage{paralist}
 
 % Floats
 \usepackage{float}
 
 %Plaatjes
+\usepackage{tikz}
 \usepackage{graphicx}
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption}
 \usepackage{subcaption}
@@ -33,9 +33,9 @@
 % Custom section headers
 \usepackage{titlesec}
 \renewcommand\thesection{\Roman{section}}
-\renewcommand\thesubsection{\Roman{subsection}}
-\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}
-\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
+\renewcommand\thesubsection{\roman{subsection}}
+\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\large\scshape}{\thesubsection.}{1em}{}
 
 %Wiskunde
 \usepackage[scientific-notation=true, round-mode=figures, round-precision=3]{siunitx}
