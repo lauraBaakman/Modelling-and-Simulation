@@ -9,11 +9,6 @@
 \usepackage{microtype}
 \usepackage{lettrine}
 
-% References
-\usepackage{varioref}
-\usepackage{hyperref}
-\usepackage{cleveref}
-
 % Document layout
 % \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry}
 \usepackage{paralist}
@@ -34,8 +29,6 @@
 
 % Custom section headers
 \usepackage{titlesec}
-\renewcommand\thesection{\Roman{section}}
-\renewcommand\thesubsection{\roman{subsection}}
 \titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{}
 \titleformat{\subsection}[block]{\large\scshape}{\thesubsection.}{1em}{}
 
@@ -46,6 +39,10 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
+% References
+\usepackage{varioref}
+\usepackage{hyperref}
+\usepackage[noabbrev]{cleveref}
 
 % References
 \usepackage[backend=bibtex]{biblatex}
