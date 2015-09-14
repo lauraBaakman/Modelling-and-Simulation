@@ -6,15 +6,14 @@ We perform two different experiments with the Chirikov map defined in \cref{eq:c
 	We have fixed the value of $K$ to 1, essentially removing the parameter form the equation. By choosing different initial values we can generate discrete points, close curves and orbits with \cref{eq:chirikov}.
 	
 	\subsubsection{Discrete points}
-	The Chirikov map results in discrete points if we can remove the periodicity caused by the sine in \eqref{eq:chirikov:p}.
+	We have generated a one-dimensional Chirikov map by choosing $x_0 = p_0 = 0.5$. Using these values $p_1 = p_0$ since the second term of \eqref{eq:chirikov:p} becomes zero. This results in $x_1 = \left( x_0 + p_{1} \right) \mod 1= 0$. The next steps are easily derived since $p_{n + 1}$ for $n > 0$ will not change due to the fact that both 0 and 0.5 as input to \eqref{eq:chirikov:p} will result in the second term becoming zero. With this initialization $x_{n} \in \left\{0,\, 0.5 \right\} \text{ for } n \geq 0$. To illustrate $x_2$ is $0.5 + 0 = 0.5$ which is equal to $x_1$. We have now shown that $p_n$ is constant for $n \geq 1$ and that $x_n$ jumps between 0 and 0.5, which explains the results in \cref{fig:experiment:dimension:0}. 
 
-	\todo[inline]{$x_0 = 0$}
+	Furthermore we have shown that these points are visited in a fixed order, which explains the plots in \crefrange{fig:experiment:dimension:0:x}{fig:experiment:dimension:0:p}.
 
-	\todo[inline]{$x_0 = 0.5$}
-
-
-	\todo[inline]{Are the single points or curves visited in a fixed order?}
-	\todo[inline]{What happens in the filled areas?}
+	This specific case results in the following constraints for $p_0$ and $x_0$; $x_0$ should be chosen in such a way that the sine in \cref{eq:chirikov:p} becomes 0, i.e. $x_0 \in \{0,\, 0.5,\, 1\}$. Due to the constraint on $x_0$ $p_{n + 1} = p_{n} \mod 1$, which is equal to $p_n$, unless $p_n = 1$. Consquently $x_{n + 1} = x_n + p_n \mod 1$, unless $p_1 = 1$. Formally, one should choose $p_0$ in such a way that:
+	\begin{equation*}
+		\left( \left[ x_0 + (p_0 \mod 1)\right] \mod 1 \right) \in \left\{0, 0.5, 1\right\}.
+	\end{equation*}
 	
 	\subsubsection{Closed curves}
 	\todo[inline]{Wanneer krijgen we dit?}
