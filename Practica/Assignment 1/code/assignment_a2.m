@@ -2,7 +2,7 @@ clc; clear all; close all force;
 
 K = 1;
 n = 1000;
-num_runs = 500;
+num_runs = 1000;
 
 colors = lbmap(num_runs, 'RedBlue');
 
