@@ -3,7 +3,7 @@ We perform two different experiments with the Chirikov map defined in \cref{eq:c
 
 \subsection[]{Fixed $K$}
 \label{ss:fixed}
-	We have fixed the value of $K$ to 1, essentially removing the parameter form the equation. By choosing different initial values we can generate discrete points, close curves and orbits with \cref{eq:chirikov}.
+	We have fixed the value of $K$ to 1, essentially removing the parameter from the equation. By choosing different initial values we can generate discrete points, close curves and orbits with \cref{eq:chirikov}.
 	
 	\subsubsection{Discrete points}
 	We have generated a one-dimensional Chirikov map by choosing $x_0 = p_0 = 0.5$. Using these values $p_1 = p_0$ since the second term of \eqref{eq:chirikov:p} becomes zero. This results in $x_1 = \left( x_0 + p_{1} \right) \mod 1= 0$. The next steps are easily derived since $p_{n + 1}$ for $n > 0$ will not change due to the fact that both 0 and 0.5 as input to \eqref{eq:chirikov:p} will result in the second term becoming zero. With this initialization $x_{n} \in \left\{0,\, 0.5 \right\} \text{ for } n \geq 0$. To illustrate $x_2$ is $0.5 + 0 = 0.5$ which is equal to $x_1$. We have now shown that $p_n$ is constant for $n \geq 1$ and that $x_n$ jumps between 0 and 0.5, which explains the results in \cref{fig:experiment:dimension:0}. 
