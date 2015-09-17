@@ -8,7 +8,7 @@ function [ map ] = chirikov_map( K, x_0, p_0, n )
     % Init Chirikov map
     map = nan(n, 2);
     
-    % Initial x and p values.
+    % Initial x and mapp values.
     map(1, :) = [x_0, p_0];
     
     for it = 2 : n
