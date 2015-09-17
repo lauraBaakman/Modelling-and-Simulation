@@ -67,8 +67,8 @@ for idx = 1 : length(x_0)
     %% Plot P as function of t
     figure()
     hold on
-    plot(1:number_of_t_plot_iterations, map(1:number_of_t_plot_iterations, P_IDX), '-', 'Color', colors(2, :), 'LineWidth', 3, 'Marker', '.', 'MarkerSize', 30, 'MarkerFaceColor', colors(3, :));
-    plot(1:number_of_t_plot_iterations, map(1:number_of_t_plot_iterations, X_IDX), '-.', 'Color', colors(3, :), 'LineWidth', 3, 'Marker', '.', 'MarkerSize', 30, 'MarkerFaceColor', colors(2, :));
+    plot(1:number_of_t_plot_iterations, map(1:number_of_t_plot_iterations, P_IDX), '-', 'Color', colors(3, :), 'LineWidth', 3, 'Marker', '.', 'MarkerSize', 30, 'MarkerFaceColor', colors(3, :));
+    plot(1:number_of_t_plot_iterations, map(1:number_of_t_plot_iterations, X_IDX), '-.', 'Color', colors(2, :), 'LineWidth', 3, 'Marker', '.', 'MarkerSize', 30, 'MarkerFaceColor', colors(2, :));
     hold off
     xlabel('n')
     ylabel('{x_n, p_n}')

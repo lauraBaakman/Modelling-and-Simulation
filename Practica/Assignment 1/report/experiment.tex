@@ -13,7 +13,7 @@ We perform two different experiments with the Chirikov map defined in \cref{eq:c
 	We have fixed the value of $K$ to 1, essentially removing the parameter form the equation. By choosing different initial values we can generate discrete points, close curves and orbits with \cref{eq:chirikov}.
 	
 	\subsubsection{Discrete points}
-	We have generated a one-dimensional Chirikov map by choosing $x_0 = p_0 = 0.5$. Using these values $p_1 = p_0$ since the second term of \eqref{eq:chirikov:p} becomes zero. This results in $x_1 = \left( x_0 + p_{1} \right) \mod 1= 0$. The next steps are easily derived since $p_{n + 1}$ for $n > 0$ will not change due to the fact that both 0 and 0.5 as input to \eqref{eq:chirikov:p} will result in the second term becoming zero. With this initialization $x_{n} \in \left\{0,\, 0.5 \right\} \text{ for } n \geq 0$. To illustrate $x_2$ is $0.5 + 0 = 0.5$ which is equal to $x_1$. We have now shown that $p_n$ is constant for $n \geq 1$ and that $x_n$ jumps between 0 and 0.5, which explains the results in \cref{fig:experiment:dimension:0}. 
+	We have generated a one-dimensional Chirikov map by choosing $x_0 = p_0 = 0.5$. Using these values $p_1 = p_0$ since the second term of \eqref{eq:chirikov:p} becomes zero. This results in $x_1 = \left( x_0 + p_{1} \right) \mod 1= 0$. The next steps are easily derived since $p_{n + 1}$ for $n > 0$ will not change due to the fact that both 0 and 0.5 as input to \eqref{eq:chirikov:p} will result in the second term becoming zero. With this initialization $x_{n} \in \left\{0,\, 0.5 \right\} \text{ for } n \geq 0$. To illustrate $x_2$ is $0.5 + 0 = 0.5$ which is equal to $x_1$. We have now shown that $p_n$ is constant for $n \geq 1$ and that $x_n$ jumps between 0 and 0.5, which is illustrated in \cref{fig:experiment:dimension:0:t}. This conclusion also explains the results in \cref{fig:experiment:dimension:0}. 
 
 	Furthermore we have shown that these points are visited in a fixed order, which explains the plots in \crefrange{fig:experiment:dimension:0:x}{fig:experiment:dimension:0:p}.\\
 
@@ -21,10 +21,10 @@ We perform two different experiments with the Chirikov map defined in \cref{eq:c
 	\begin{equation*}
 	p_{n + 1} = p_{n} \mod 1,
 	\end{equation*}
- 	which is equal to $p_n$, unless $p_n = 1$. Consquently
- 	\begin{equation}
+ 	which is equal to $p_n$, unless $p_n = 1$. Consequently
+ 	\begin{equation*}
  	x_{n + 1} = x_n + p_n \mod 1,
- 	\end{equation}
+ 	\end{equation*}
 	unless $p_1 = 1$. Formally, one should choose $p_0$ in such a way that:
 	\begin{equation*}
 		\left( \left[ x_0 + (p_0 \mod 1)\right] \mod 1 \right) \in \left\{0, 0.5, 1\right\}.
@@ -33,9 +33,9 @@ We perform two different experiments with the Chirikov map defined in \cref{eq:c
 	\subsubsection{Closed curves}
 	We have determined empircally that $\left\{x_0\,, p_0 \right\} = {\num{0.1269868},\,\num{0.9133759}}$ results in closed curves. \Cref{fig:experiment:dimension:1} shows $p_n$ as a function of $x_n$, \crefrange{fig:experiment:dimension:1:x}{fig:experiment:dimension:1:p} shows the progression of respectively $p$ and $x$.\\
 
-	Considering these figures we see that the progression of both $p$ and $x$ happens according to a fixed pattern with a seemingly periodic shift. 
+	Considering these figures we see that the progression of both $p$ and $x$ happens according to a fixed pattern with a seemingly periodic shift. Examining \cref{fig:experiment:dimension:1:t} we see that in the map, there are 
 
-	Taking into account the values of $p$ one finds that the bottom left and upper right of \cref{fig:experiment:dimension:1:p} are associated with respectively the lower and the upper closed curve in {fig:experiment:dimension:1}. From this we can conclude the map first switches between generating some $p$-values for the upper and bottom closed curves in \cref{fig:experiment:dimension:1}. 
+	% Taking into account the values of $p$ one finds that the bottom left and upper right of \cref{fig:experiment:dimension:1:p} are associated with respectively the lower and the upper closed curve in {fig:experiment:dimension:1}. From this we can conclude the map first switches between generating some $p$-values for the upper and bottom closed curves in \cref{fig:experiment:dimension:1}. 
 
 	
 
