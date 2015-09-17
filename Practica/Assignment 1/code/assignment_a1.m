@@ -8,7 +8,16 @@ X_IDX = 1; P_IDX = 2;
 x_0 = [0.5, 0.1576131, 0.1269868];
 p_0 = [0.5, 0.9705928, 0.9133759];
 
-colors = lbmap(2, 'RedBlue');
+colors = [
+    27,158,119;
+    217,95,2;
+    117,112,179
+] ./ 256;
+
+
+number_of_plot_iterations = 500;
+
+lbmap(2, 'RedBlue');
 
 sizes = [100, 20, 15];
 
@@ -17,7 +26,7 @@ for idx = 1 : length(x_0)
     map = chirikov_map(K, x_0(idx), p_0(idx), n);
     
     figure()
-    scatter(map(:, X_IDX), map(:, P_IDX), sizes(idx), 'filled', 'MarkerFaceColor', colors(2,:));
+    scatter(map(:, X_IDX), map(:, P_IDX), sizes(idx), 'filled', 'MarkerFaceColor', colors(1,:));
     xlim([-0.1, 1.1]);
     ylim([-0.1, 1.1]);
     
@@ -27,7 +36,7 @@ for idx = 1 : length(x_0)
     high_quality_plot('Save', sprintf('../report/img/assignment_a_%d_dim.pdf', idx - 1), 'FontSize', 22, 'PaperWidth', 8, 'PaperHeight', 8, 'Margin', 0.05, 'Box', 'on');
     
     figure()
-    plot(map(1:end - 1, X_IDX), map(2:end, X_IDX), 'Color', colors(2,:));
+    plot(map(1:number_of_plot_iterations - 1, X_IDX), map(2:number_of_plot_iterations, X_IDX), 'Color', colors(2,:));
     xlim([-0.1, 1.1]);
     ylim([-0.1, 1.1]);
     
@@ -38,9 +47,9 @@ for idx = 1 : length(x_0)
     
     figure()
     if(idx == 1)
-        scatter(map(1:end - 1, P_IDX), map(2:end, P_IDX), 100, 'Filled', 'MarkerFaceColor', colors(1,:));
+        scatter(map(1:number_of_plot_iterations - 1, P_IDX), map(2:number_of_plot_iterations, P_IDX), 100, 'Filled', 'MarkerFaceColor', colors(3,:));
     else
-        plot(map(1:end - 1, P_IDX), map(2:end, P_IDX), 'Color', colors(1,:));
+        plot(map(1:number_of_plot_iterations - 1, P_IDX), map(2:number_of_plot_iterations, P_IDX), 'Color', colors(3,:));
     end
     
     xlim([-0.1, 1.1]);
