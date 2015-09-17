@@ -27,7 +27,7 @@ for idx = 1 : length(x_0)
     high_quality_plot('Save', sprintf('../report/img/assignment_a_%d_dim.pdf', idx - 1), 'FontSize', 22, 'PaperWidth', 8, 'PaperHeight', 8, 'Margin', 0.05, 'Box', 'on');
     
     figure()
-    plot(map(1:500 - 1, X_IDX), map(2:500, X_IDX), 'Color', colors(2,:));
+    plot(map(1:end - 1, X_IDX), map(2:end, X_IDX), 'Color', colors(2,:));
     xlim([-0.1, 1.1]);
     ylim([-0.1, 1.1]);
     
@@ -37,7 +37,12 @@ for idx = 1 : length(x_0)
     high_quality_plot('Save', sprintf('../report/img/assignment_a_%d_dim_progression_x.pdf', idx - 1), 'FontSize', 22, 'PaperWidth', 8, 'PaperHeight', 8, 'Margin', 0.05, 'Box', 'on');
     
     figure()
-    plot(map(1:500 - 1, P_IDX), map(2:500, P_IDX), 'Color', colors(1,:));
+    if(idx == 1)
+        scatter(map(1:end - 1, P_IDX), map(2:end, P_IDX), 100, 'Filled', 'MarkerFaceColor', colors(1,:));
+    else
+        plot(map(1:end - 1, P_IDX), map(2:end, P_IDX), 'Color', colors(1,:));
+    end
+    
     xlim([-0.1, 1.1]);
     ylim([-0.1, 1.1]);
     
