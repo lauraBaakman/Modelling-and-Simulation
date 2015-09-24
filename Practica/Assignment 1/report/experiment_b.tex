@@ -14,6 +14,21 @@ If we choose $K = 0$ \cref{eq:chirikov} becomes:
 \todo[inline]{Analytisch de orbits bepalen voor K = 0}
 \todo[inline]{Plotjes als K = 0}
 
+\begin{figure*}
+	\centering
+	\foreach \k/\fnk in {0/0, 0.2/2, 0.4/4, 0.8/8, 1/10, 2/20, 3/30, 4/40}{
+		\begin{subfigure}{0.24\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{./img/assignment_b_fancy_k_\fnk.jpg}
+			\caption{$K = \k$}
+			\label{fig:experiment:fancy_k:\k}
+		\end{subfigure}
+	}
+	\caption{Full 100 run chirikov maps, for different $K$. For each map 1000 iterations and random initialisation for $x_0$ and $p_0$ were used.}
+	\label{fig:experiment:fancy_k}
+\end{figure*}
+
+
 \subsection{Non-Trivial Case}
 \todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling?}
 \todo[inline]{Discuss similarities and differences to logistic map}
