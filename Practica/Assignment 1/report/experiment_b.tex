@@ -1,5 +1,5 @@
 %!TEX root = practicum1.tex
-The parameter $K$ defines how small, or large, the periodic kicking of our system is, i.e. for $K = 0$ we would expect no perturbations, this case is discussed in \cref{ss:b:trivial}. As the value of $K$ increases we expect that the chaotic regions grow and eventually start to dominate the phase space \cite{finn200Cahaotic}, the effect of varying values of $K$ are discussed in \cref{ss:b:nontrivial}. Finally \cref{ss:b:kam} discusses KAM theory and how it relates to the Chirikov map. 
+The parameter $K$ defines how hard the system is driven, i.e. for $K = 0$ we would expect no perturbations, this case is discussed in \cref{ss:b:trivial}. As the value of $K$ increases we expect that the chaotic regions grow and eventually start to dominate the phase space \cite{finn200Cahaotic}. The effect of varying values of $K$ is discussed in \cref{ss:b:nontrivial}. Finally \cref{ss:b:kam} discusses KAM theory and how it relates to the Chirikov map. 
 
 \subsection{Trivial Case}
 \label{ss:b:trivial}
@@ -10,9 +10,9 @@ If we choose $K = 0$ \cref{eq:chirikov} becomes:
 		\label{eq:chirikov0:x} x_{n + 1} &= x_n + p_{n + 1} \mod 1.
 	\end{align}
 \end{subequations}	
-Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $p_1 = 0$ as $1 \mod 1 = 0$. Consequently without modulo 1, $x_n$ would increase linearly. Due to the modulo $x_n$ becomes periodic. 
+Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $p_1 = 0$ as a consequence of the modulo operator in \eqref{eq:chirikov0:p}. Consequently without modulo 1, $x_n$ would increase linearly, due to this operator $x_n$ is periodic. 
 
-\Cref{fig:experiment:K0influenceOfX} shows $x_0$ as a function of $n$ for a fixed value of $p_0$, if we compare the different plots  in this figure we observe that changing $x_0$ only influences that phase of $x_n$, and not the period. 
+\Cref{fig:experiment:K0influenceOfX} shows $x_0$ as a function of $n$ for a fixed value of $p_0$, if we compare the different plots  in this figure we observe that changing $x_0$ and fixing $p_0$ only influences the phase of $x_n$, and not the period. 
 
 \begin{figure}
 	\centering
@@ -27,7 +27,7 @@ Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $
 	\label{fig:experiment:K0influenceOfX}
 \end{figure}
 
-Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, these plots clearly show that $p_0$ influences the periodicity of the map. These plots also illustrate that $p_0$ results in a higher frequency, for fixed $x_0$. 
+Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, these plots show that $p_0$ influences the periodicity of the map, that is increasing $p_0$, increases the frequency.
 
 \begin{figure}
 	\centering
