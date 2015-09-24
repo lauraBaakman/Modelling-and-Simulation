@@ -9,10 +9,37 @@ If we choose $K = 0$ \cref{eq:chirikov} becomes:
 		\label{eq:chirikov0:x} x_{n + 1} &= x_n + p_{n + 1} \mod 1.
 	\end{align}
 \end{subequations}	
+Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $p_1 = 0$ as $1 \mod 1 = 0$. Consquently without modulo 1, $x_n$ would increase linearly. Due to the modulo $x_n$ becomes periodic. 
 
+\Cref{fig:experiment:K0influenceOfX} shows $x_0$ as a function of $n$ for a fixed value of $p_0$, if we comare the different plots  in this figure we observe that changing $x_0$ only influences that phase of $x_n$, and not the period. 
 
-\todo[inline]{Analytisch de orbits bepalen voor K = 0}
-\todo[inline]{Plotjes als K = 0}
+\begin{figure}
+	\centering
+	\foreach \x/\actualX in {1/0.1, 3/0.3, 5/0.5}{
+		\begin{subfigure}[t]{\columnwidth}
+			\includegraphics[width=\textwidth]{./img/assignment_b_K=0p_0=04x_0=0\x.pdf}
+			\caption{$x_0 = \actualX$}
+			\label{fig:experiment:K0:X:\x}
+		\end{subfigure}	
+	}	
+	\caption{$x_n$ as a function of $n$, for $p_0 = 0.4$ and varying $x$.}
+	\label{fig:experiment:K0influenceOfX}
+\end{figure}
+
+Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, these plots clearly show that $p_0$ influences the periodicity of the map. These plots also illustrate that $p_0$ results in a higher frequency, for fixed $x_0$. 
+
+\begin{figure}
+	\centering
+	\foreach \p/\actualP in {1/0.1, 3/0.3, 5/0.5}{
+		\begin{subfigure}[t]{\columnwidth}
+			\includegraphics[width=\textwidth]{./img/assignment_b_K=0p_0=0\p x_0=04.pdf}
+			\caption{$p_0 = \actualP$}
+			\label{fig:experiment:K0:P:\p}
+		\end{subfigure}	
+	}	
+	\caption{$x_n$ as a function of $n$, for $x_0 = 0.4$ and varying $p$.}
+	\label{fig:experiment:K0influenceOfP}
+\end{figure}
 
 \begin{figure*}
 	\centering
