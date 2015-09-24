@@ -42,6 +42,21 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 	\label{fig:experiment:K0influenceOfP}
 \end{figure}
 
+\begin{figure*}
+	\centering
+	\foreach \k/\fnk in {0/0, 0.2/2, 0.4/4, 0.8/8, 1/10, 2/20, 3/30, 4/40}{
+		\begin{subfigure}{0.24\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{./img/assignment_b_fancy_k_\fnk.jpg}
+			\caption{$K = \k$}
+			\label{fig:experiment:fancy_k:\k}
+		\end{subfigure}
+	}
+	\caption{Full 100 run chirikov maps, for different $K$. For each map 1000 iterations and random initialisation for $x_0$ and $p_0$ were used.}
+	\label{fig:experiment:fancy_k}
+\end{figure*}
+
+
 \subsection{Non-Trivial Case}
 \label{ss:b:nontrivial}
 \todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling?}

@@ -7,7 +7,6 @@ x_0s = 0.1:0.2:1;
     
 colors = lbmap(1);
 
-
 idx = 1;
 for x_0 = x_0s
     map = chirikov_map(0, x_0, p_0, 20);

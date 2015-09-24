@@ -60,6 +60,7 @@ function high_quality_plot( varargin )
     set(gcf, 'PaperPositionMode', 'Manual');
     
     if ~strcmp(p.Results.Save, '')
-        print(gcf, '-painters', '-dpdf', '-r300', p.Results.Save);
+%         print(gcf, '-painters', '-dpdf', '-r300', p.Results.Save);
+        print(gcf, '-painters', '-djpeg', '-r300', p.Results.Save);
     end
 end
