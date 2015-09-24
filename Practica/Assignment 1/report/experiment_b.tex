@@ -1,7 +1,8 @@
 %!TEX root = practicum1.tex
-\todo[inline]{Korte intro}
+The parameter $K$ defines how small, or large, the periodic kicking of our system is, i.e. for $K = 0$ we would expect no perturbations, this case is discussed in \cref{ss:b:trivial}. As the value of $K$ increases we expect that the chaotic regions grow and eventually start to dominate the phase space \cite{finn200Cahaotic}, the effect of varying values of $K$ are discussed in \cref{ss:b:nontrivial}. Finally \cref{ss:b:kam} discusses KAM theory and how it relates to the Chirikov map. 
 
 \subsection{Trivial Case}
+\label{ss:b:trivial}
 If we choose $K = 0$ \cref{eq:chirikov} becomes:
 \begin{subequations}\label{eq:chirikovK0}
 	\begin{align}
@@ -9,9 +10,9 @@ If we choose $K = 0$ \cref{eq:chirikov} becomes:
 		\label{eq:chirikov0:x} x_{n + 1} &= x_n + p_{n + 1} \mod 1.
 	\end{align}
 \end{subequations}	
-Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $p_1 = 0$ as $1 \mod 1 = 0$. Consquently without modulo 1, $x_n$ would increase linearly. Due to the modulo $x_n$ becomes periodic. 
+Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $p_1 = 0$ as $1 \mod 1 = 0$. Consequently without modulo 1, $x_n$ would increase linearly. Due to the modulo $x_n$ becomes periodic. 
 
-\Cref{fig:experiment:K0influenceOfX} shows $x_0$ as a function of $n$ for a fixed value of $p_0$, if we comare the different plots  in this figure we observe that changing $x_0$ only influences that phase of $x_n$, and not the period. 
+\Cref{fig:experiment:K0influenceOfX} shows $x_0$ as a function of $n$ for a fixed value of $p_0$, if we compare the different plots  in this figure we observe that changing $x_0$ only influences that phase of $x_n$, and not the period. 
 
 \begin{figure}
 	\centering
@@ -42,8 +43,10 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 \end{figure}
 
 \subsection{Non-Trivial Case}
+\label{ss:b:nontrivial}
 \todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling?}
 \todo[inline]{Discuss similarities and differences to logistic map}
 
 \subsection{KAM-orbits}
+\label{ss:b:kam}
 \todo[inline]{Refind $K_C$ in literatur and try to confirm that KAM orbits exist just below but not above $K_c$}
