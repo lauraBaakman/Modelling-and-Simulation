@@ -49,7 +49,7 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 			\centering
 			\includegraphics[width=\textwidth]{./img/assignment_b_fancy_k_\fnk.jpg}
 			\caption{$K = \k$}
-			\label{fig:experiment:fancy_k:\k}
+			\label{fig:experiment:fancy_k:\fnk}
 		\end{subfigure}
 	}
 	\caption{Full 100 run chirikov maps, for different $K$. For each map 1000 iterations and random initialisation for $x_0$ and $p_0$ were used.}
@@ -60,9 +60,11 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 \subsection{Non-Trivial Case}
 \label{ss:b:nontrivial}
 \todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling?}
-\Cref{fig:experiment:fancy_k} shows the influence of the chaos driving variable $K$ on randomly intialised chirikov map. As can be expected from the discussion in our previous section the map created with $K = 0$ shows only horizontal filled or dotted lines. This results from the constant value for $p_0$ and periodic changing values for $x_0$. 
+\Cref{fig:experiment:fancy_k} shows the influence of the chaos driving variable $K$. All the images in \cref{fig:experiment:fancy_k} contain 100 chirikov maps with randomly chosen values for $x_0$ and $p_0$. We consider a phase space to be more chaotic when there are more or bigger orbits (filled areas) in the images. \todo[inline]{Whould be nice to find that $K_c$ value to be between $0.4$ and $0.8$...}
 
-By increasing $K$ with relatively small steps $0.2$ up until one, see \cref{fig:experiment:fancy_k_2} - \ref{fig:experiment:fancy_k_40}, one can clearly see the influence of this variable. With a $K = 0.2$ we can see that the constant lines are replaced by curves and ellipses in the upper, lower part and centre of phase space. From a $K = 8$ we can see even more chaotic behaviour, illustrated by $2D$ regions that are formed. Finally in the images shown in \cref{fig:experiment:fancy_k:20} - \ref{fig:experiment:fancy_k_40} we see that the $2D$ areas are more and more dominating 
+As can be expected from the discussion in our previous section the map created with $K = 0$ shows only horizontal filled or dotted lines \todo[inline]{Dotted lines: Period doubling?}. This results from the constant value for $p_n$ and periodic changing values for $x_n$. 
+
+By increasing $K$ with relatively small steps $0.2$ up until one, see \cref{fig:experiment:fancy_k_2} - \ref{fig:experiment:fancy_k:40}, one can clearly see the influence of this variable. With a $K = 0.2$ we can see that the constant lines are replaced by the closed curves in the upper, lower, and centre part of the phase space. From a $K = 8$ we can see the creation of the first mentionable orbits i.e. the 2D regions start to grow in the upper and lower parts of the image in \cref{fig:experiment:fancy_k:8}. \todo[inline]{Which has probably something to do the KAM theory, I just found the $K_c$ value to be $0.618033$} Finally in the images shown in \cref{fig:experiment:fancy_k:20} - \ref{fig:experiment:fancy_k:40} we see that the orbits start to dominate, with in the last two images (\cref{fig:experiment:fancy_k:30} and \ref{fig:experiment:fancy_k:40}) only two stable points/areas/lines left. 
 
 
 
