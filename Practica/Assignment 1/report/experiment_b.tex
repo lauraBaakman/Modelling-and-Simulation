@@ -15,7 +15,7 @@ Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $
 
 \Cref{fig:experiment:K0influenceOfX} shows $x_0$ as a function of $n$ for a fixed value of $p_0$, if we compare the different plots  in this figure we observe that changing $x_0$ and fixing $p_0$ only influences the phase of $x_n$, and not the period. 
 
-\begin{figure}
+\begin{figure}[t]
 	\centering
 	\foreach \x/\actualX in {1/0.1, 3/0.3, 5/0.5}{
 		\begin{subfigure}[t]{\columnwidth}
@@ -30,7 +30,7 @@ Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $
 
 Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, these plots show that $p_0$ influences the periodicity of the map, that is increasing $p_0$, increases the frequency.
 
-\begin{figure}
+\begin{figure}[t]
 	\centering
 	\foreach \p/\actualP in {1/0.1, 3/0.3, 5/0.5}{
 		\begin{subfigure}[t]{\columnwidth}
@@ -43,6 +43,7 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 	\label{fig:experiment:K0influenceOfP}
 \end{figure}
 
+\todo[inline]{In Caption van \cref{fig:experiment:fancy_k} assen enzo beschrijven.}
 \begin{figure*}
 	\centering
 	\foreach \k/\fnk in {0/0, 0.2/2, 0.4/4, 0.8/8, 1/10, 2/20, 3/30, 4/40}{
@@ -65,12 +66,12 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 
 % \begin{figure}
 % 	\centering
-% 	\includegraphics[width=0.9\columnwidth]{./img/assignment_b_colormap.jpg}
-% 	\caption{Color map for the colors in \cref{fig:experiment:fancy_k}}
+% 	\includegraphics[width=0.6\columnwidth]{./img/assignment_b_colormap.jpg}
+% 	\caption{Colour map for the colours used in \cref{fig:experiment:fancy_k} and \ref{fig:experiment:b:testKC}.}
 % 	\label{fig:experiment:colormap}
 % \end{figure}
 
-\begin{figure}
+\begin{figure*}[h!]
 	\centering
 	\begin{subfigure}{\columnwidth}
 		\centering
@@ -86,12 +87,12 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 	\end{subfigure}
 	\caption{Bifurcation plot for $x_0 = \num{0.234546}$ and $p_0 = \num{0.112322}$ to illustrate the period doubling like effect in \cref{fig:experiment:fancy_k:2}}
 	\label{fig:experiment:bifurcation}
-\end{figure}
+\end{figure*}
 
 \subsection{Non-Trivial Case}
 \label{ss:b:nontrivial}
 \todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling?}
-\Cref{fig:experiment:fancy_k} shows the influence of the chaos driving variable $K$. All the images in \cref{fig:experiment:fancy_k} contain 100 chirikov maps with randomly chosen values for $x_0$ and $p_0$. We consider a phase space to be more chaotic when there are more or bigger orbits (filled areas) in the images. \todo[inline]{Whould be nice to find that $K_c$ value to be between $0.4$ and $0.8$...}
+\Cref{fig:experiment:fancy_k} shows the influence of the chaos driving variable $K$. All the images in \cref{fig:experiment:fancy_k} contain 100 Chirikov maps with randomly chosen values for $x_0$ and $p_0$. We consider a phase space to be more chaotic when there are more or bigger orbits (filled areas) in the images. \todo[inline]{Would be nice to find that $K_c$ value to be between $0.4$ and $0.8$...}
 
 As can be expected from the discussion in our previous section the map created with $K = 0$ shows only horizontal filled or dotted lines \todo[inline]{Dotted lines: Period doubling?}. This results from the constant value for $p_n$ and periodic changing values for $x_n$. 
 
@@ -103,4 +104,27 @@ By increasing $K$ with relatively small steps $0.2$ up until one, see \cref{fig:
 
 \subsection{KAM-orbits}
 \label{ss:b:kam}
-\todo[inline]{Refind $K_C$ in literatur and try to confirm that KAM orbits exist just below but not above $K_c$}
+\citeauthor{kenzel1997physics} define Kolmogorov-Arnold-Moser-orbits as one-dimensional orbits that traverse the entire phase-state diagram horizontally, in \cref{fig:experiment:fancy_k} they are represented by the solid lines. Looking closely at \cref{fig:experiment:fancy_k:0} we observe that not all orbits are $KAM$-orbits, since some of the lines are clearly dashed. An interesting property of the KAM-orbits is that it can be shown that chaotic orbits cannot cross the one-dimensional orbits \cite{kenzel1997physics}. Consequently they restrict the extent of the chaos of the two-dimensional orbits.\\
+
+\begin{figure*}
+	\centering
+	\begin{subfigure}{\columnwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./img/assignment_b_fancy_k_9700}
+		\caption{$K = 0.970000$}
+		\label{fig:experiment:b:96}
+	\end{subfigure}
+	\begin{subfigure}{\columnwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./img/assignment_b_fancy_k_9716}
+		\caption{$K = K_c$}
+		\label{fig:experiment:b:KC}
+	\end{subfigure}	
+	\caption{$p_n$ as a function of $x_n$ for $0.4 \leq x_n \leq 0.6$, $0 \leq p_n \leq 0.15$ and $0 \leq n \leq 250$. \subref{fig:experiment:b:96} show the phase-state diagram for $K = 0.970000$ and \subref{fig:experiment:b:KC} for $K + K_c$. The 200 initial values for $p$ and $x$ where chosen randomly, but were identical for both values of $K$.}
+	\label{fig:experiment:b:testKC}
+\end{figure*}
+
+\citeauthor{greene1979method} observed that for small values of $K$ there are many KAM orbits that encircle the islands horizontally, see \cref{fig:experiment:fancy_k:0}, \ref{fig:experiment:fancy_k:2} and \ref{fig:experiment:fancy_k:4}. These KAM orbits divide the space into several compartments which may contain chaotic orbits. For larger values of $K$ there are fewer KAM orbits and individual chaotic orbits occur a greater are of the phase space. Finally at some critical value of $K$, called $K_c$, the last KAM orbit disappears, this effect can be observed in \cref{fig:experiment:fancy_k:10}. 
+
+It has been found that for $K < K_c = 0.971635\dotsc$, one-dimensional-orbits exist that traverse the entire phase-state diagram horizontally \cite{kenzel1997physics}. If we plot the phase-state diagram for a value of $K$ that is slightly smaller than $K_c$, \cref{fig:experiment:b:96}, and for $K = K_c$, \cref{fig:experiment:b:KC}, we observe that the single KAM-orbit in \cref{fig:experiment:b:96} has disappeared in \cref{fig:experiment:b:KC}. 
+
