@@ -6,6 +6,7 @@
 \usepackage[sc]{mathpazo}
 \usepackage[T1]{fontenc}
 \linespread{1.05}
+\usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{lettrine}
 
@@ -19,7 +20,7 @@
 %Plaatjes
 \usepackage{tikz}
 \usepackage{graphicx}
-\usepackage[hang, small,labelfont=bf,up,textfont=it,up, justification=raggedright]{caption}
+\usepackage[hang, small,labelfont=bf,up,textfont=sl,up, justification=raggedright]{caption}
 \usepackage{subcaption}
 \DeclareCaptionLabelFormat{opening}{(#2)}
 \captionsetup{subrefformat=opening}
@@ -51,7 +52,7 @@
 \bibliography{biblio}
 
 % Temp
-\usepackage[disable]{todonotes}
+\usepackage{todonotes}
 % \usepackage{showlabels}
 
 % Math commands
@@ -65,9 +66,18 @@
 \renewcommand{\t}[1]{\texttt{#1}}
 
 \title{Modelling and Simulation\\Practical Assignment I: The Chirikov map}
-\author{Rick van Veen (s1883933) \and Laura Baakman (s1869140)}
+\author{%
+	Rick van Veen (s1883933)%
+	\thanks{These authors contributed equally ot this work.}% 
+	\and% 
+	Laura Baakman (s1869140)%
+	\footnotemark[1]%
+}
+
 
 \begin{document}
+
+\todo[inline]{Mogelijk uitbreiding als Han er zo niet gelukkig mee is: bespreek Winding numbers, zie \cite{kenzel1997physics}, en bepsreek de praktische toepassing van de map in de inleiding.}
 
 \maketitle
 
