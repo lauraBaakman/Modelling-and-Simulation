@@ -53,7 +53,7 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 			\label{fig:experiment:fancy_k:\fnk}
 		\end{subfigure}
 	}
-	\caption{Full 100 run chirikov maps, for different $K$. For each map 1000 iterations and random initialisation for $x_0$ and $p_0$ were used.}
+	\caption{Full 100 run Chirikov maps, for different $K$. For each map 1000 iterations and random initialisation for $x_0$ and $p_0$ were used.}
 	\label{fig:experiment:fancy_k}
 \end{figure*}
 
@@ -61,7 +61,7 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 \subsection{Non-Trivial Case}
 \label{ss:b:nontrivial}
 \todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling?}
-\Cref{fig:experiment:fancy_k} shows the influence of the chaos driving variable $K$. All the images in \cref{fig:experiment:fancy_k} contain 100 chirikov maps with randomly chosen values for $x_0$ and $p_0$. We consider a phase space to be more chaotic when there are more or bigger orbits (filled areas) in the images. \todo[inline]{Whould be nice to find that $K_c$ value to be between $0.4$ and $0.8$...}
+\Cref{fig:experiment:fancy_k} shows the influence of the chaos driving variable $K$. All the images in \cref{fig:experiment:fancy_k} contain 100 Chirikov maps with randomly chosen values for $x_0$ and $p_0$. We consider a phase space to be more chaotic when there are more or bigger orbits (filled areas) in the images. \todo[inline]{Would be nice to find that $K_c$ value to be between $0.4$ and $0.8$...}
 
 As can be expected from the discussion in our previous section the map created with $K = 0$ shows only horizontal filled or dotted lines \todo[inline]{Dotted lines: Period doubling?}. This results from the constant value for $p_n$ and periodic changing values for $x_n$. 
 
@@ -73,4 +73,9 @@ By increasing $K$ with relatively small steps $0.2$ up until one, see \cref{fig:
 
 \subsection{KAM-orbits}
 \label{ss:b:kam}
-\todo[inline]{Refind $K_C$ in literatur and try to confirm that KAM orbits exist just below but not above $K_c$}
+\citeauthor{kenzel1997physics} define Kolmogorov-Arnold-Moser-orbits as one-dimensional orbits that traverse the entire phase-state diagram horizontally, in \cref{fig:experiment:fancy_k} they are represented by the solid lines. Looking closely at \cref{fig:experiment:fancy_k:0} we observe that not all orbits are $KAM$-orbits, since some of the lines are clearly dashed. An interesting property of the KAM-orbits is that it can be shown that chaotic orbits cannot cross the one-dimensional orbits \cite{kenzel1997physics}. Consequently they restrict the extent of the chaos of the two-dimensional orbits.\\
+
+\todo[inline]{Meer eigenschappen KAM-orbits}
+
+\todo[inline]{$K_C$}
+\Cref{fig:experiment:fancy_k:0} to \ref{fig:experiment:fancy_k:8} show KAM-orbits, however they cannot be found in the phase-space diagrams for higher values of $K$. 
