@@ -1,5 +1,5 @@
 %!TEX root = practicum1.tex
-The parameter $K$ defines how hard the system is driven, i.e. for $K = 0$ we would expect no perturbations, this case is discussed in \cref{ss:b:trivial}. As the value of $K$ increases we expect that the chaotic regions grow and eventually start to dominate the phase space \cite{finn200Cahaotic}. The effect of varying values of $K$ is discussed in \cref{ss:b:nontrivial}. Finally \cref{ss:b:kam} discusses KAM theory and how it relates to the Chirikov map. 
+The parameter $K$ defines how hard the system is driven, that is why for $K = 0$ we would expect to have no perturbations. This case is more extensively discussed in \cref{ss:b:trivial}. As the value of $K$ increases we expect that the chaotic regions grow and eventually start to dominate the phase space \cite{finn200Cahaotic}. The effect of varying values of $K$ is discussed in \cref{ss:b:nontrivial}. Finally \cref{ss:b:kam} discusses KAM theory and how it relates to the Chirikov map. 
 
 \subsection{Trivial Case}
 \label{ss:b:trivial}
@@ -11,7 +11,7 @@ If we choose $K = 0$ \cref{eq:chirikov} becomes:
 		\label{eq:chirikov0:x} x_{n + 1} &= x_n + p_{n + 1} \mod 1.
 	\end{align}
 \end{subequations}	
-Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, $p_1 = 0$ as a consequence of the modulo operator in \eqref{eq:chirikov0:p}. Consequently without modulo 1, $x_n$ would increase linearly, due to this operator $x_n$ is periodic. 
+Consequently the values of $p_n$ are constant for $n > 0$, since if $p_0 = 1$, then $p_1$ becomes zero as a consequence of the modulo operator in \eqref{eq:chirikov0:p}. Additionally without the modulo in \eqref{eq:chirikov0:x}, $x_n$ would increase linearly, but due to this operator $x_n$ becomes periodic. 
 
 \Cref{fig:experiment:K0influenceOfX} shows $x_0$ as a function of $n$ for a fixed value of $p_0$, if we compare the different plots  in this figure we observe that changing $x_0$ and fixing $p_0$ only influences the phase of $x_n$, and not the period. 
 
@@ -91,16 +91,16 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 
 \subsection{Non-Trivial Case}
 \label{ss:b:nontrivial}
-\todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling?}
-\Cref{fig:experiment:fancy_k} shows the influence of the chaos driving variable $K$. All the images in \cref{fig:experiment:fancy_k} contain 100 Chirikov maps with randomly chosen values for $x_0$ and $p_0$. We consider a phase space to be more chaotic when there are more or bigger orbits (filled areas) in the images. \todo[inline]{Would be nice to find that $K_c$ value to be between $0.4$ and $0.8$...}
+\todo[inline]{How do the orbits change with increasing K? Do we have scenarios that are similar to period doubling? Done at least a bit.}
+\Cref{fig:experiment:fancy_k} shows the influence of variable $K$. As introduced $K$ determines the drive of the system resulting in more chaotic behaviour with a higher $K$. The images in \cref{fig:experiment:fancy_k} were created by including 100 Chirikov maps with randomly chosen values for $x_0$ and $p_0$. The colour for each map was determined by its initialisation. The mapping from the colours to the initial values are shown in \cref{fig:experiment:fancy_k:colormap}. Note that because of the choice to colour the maps this way, we can see that up until $K = 1$ the colours stay in the same order, as opposed to $K = 2$ to $K = 4$ were this order is completely gone.
 
-As can be expected from the discussion in our previous section the map created with $K = 0$ shows only horizontal filled or dotted lines \todo[inline]{Dotted lines: Period doubling?}. This results from the constant value for $p_n$ and periodic changing values for $x_n$. 
+We consider a phase space to be more chaotic when there are more or bigger filled areas in the images. As can be expected from the discussion in our previous section the map created with $K = 0$ shows only horizontal (constant $p_n$) lines. Interesting is the difference in line types i.e. there are filled and dotted lines, indicating different periods for $x_n$. \todo[inline]{Ja... ofzo, denk ik.}
 
-By increasing $K$ with relatively small steps $0.2$ up until one, see \cref{fig:experiment:fancy_k:2} - \ref{fig:experiment:fancy_k:40}, one can clearly see the influence of this variable. With a $K = 0.2$ we can see that the constant lines are replaced by the closed curves in the upper, lower, and centre part of the phase space. From a $K = 8$ we can see the creation of the first mentionable orbits i.e. the 2D regions start to grow in the upper and lower parts of the image in \cref{fig:experiment:fancy_k:8}. \todo[inline]{Which has probably something to do the KAM theory, I just found the $K_c$ value to be $0.618033$} Finally in the images shown in \cref{fig:experiment:fancy_k:20} - \ref{fig:experiment:fancy_k:40} we see that the orbits start to dominate, with in the last two images (\cref{fig:experiment:fancy_k:30} and \ref{fig:experiment:fancy_k:40}) only two stable points/areas/lines left. 
+We found that by increasing $K$ with steps of $0.2$ up until one, (\cref{fig:experiment:fancy_k:2} - \ref{fig:experiment:fancy_k:10}), and then with steps of 1 (\cref{fig:experiment:fancy_k:20} - \ref{fig:experiment:fancy_k:40}) until a $K$ of four, clearly shows the influence of $K$. At $K = 0.2$ we see that the some of the horizontal lines are replaced by closed curves in the upper and lower part of the image, see \cref{fig:experiment:fancy_k:2}. Because the colours in the image map to initial values we see that the curves that appear in the upper and lower part were formed from approximately the same initial $x$ and $p$ values. This resembles a kind of period doubling. \Cref{fig:experiment:bifurcation} shows this kind of period doubling behaviour in a bifurcation diagram. 
 
+From a $K = 0.8$ we can see that thee first mentionable filled regions start to grow in the upper and lower parts of the image in \cref{fig:experiment:fancy_k:8}. \todo[inline]{Close to the critical $K$?} Finally in the images shown in \cref{fig:experiment:fancy_k:20} - \ref{fig:experiment:fancy_k:40} we see that the orbits completely start to dominate the image. With in the last two images (\cref{fig:experiment:fancy_k:30} and \ref{fig:experiment:fancy_k:40}) only a few more stable initialisations left. 
 
-
-\todo[inline]{Discuss similarities and differences to logistic map}
+\todo[inline]{Discuss similarities and differences to logistic map. Fuck}
 
 \subsection{KAM-orbits}
 \label{ss:b:kam}
