@@ -62,5 +62,7 @@ function high_quality_plot( varargin )
     if ~strcmp(p.Results.Save, '')
 %         print(gcf, '-painters', '-dpdf', '-r300', p.Results.Save);
         print(gcf, '-painters', '-djpeg', '-r300', p.Results.Save);
+%         print(gcf, '-djpeg', '-r300', p.Results.Save);
+%         save(p.Results.Save);
     end
 end
