@@ -8,6 +8,19 @@ function high_quality_plot( varargin )
     % add optional needs the name, default value, and validator
     p.addOptional('Save', '');
     
+    p.addOptional('Ext', 'pdf', @check_extension);
+    
+    function tf = check_extension(x)
+        tf = ischar(x) && (strcmp('pdf', x) || strcmp('jpeg', x)); % Lazy?
+    end
+    
+    p.addOptional('Dpi', 300, @check_dpi);
+    
+    function tf = check_dpi(x)
+        tf = isnumeric(x) && (x > 0 && x < 1200); % Ofzo....
+    end
+
+
     p.addOptional('PaperWidth', 4, @isnumeric);
     p.addOptional('PaperHeight', 4, @isnumeric);
     p.addOptional('Margin', 0.1, @isnumeric);
@@ -49,7 +62,7 @@ function high_quality_plot( varargin )
     set(findall(gcf,'type','text'),'FontName','Helvetica');
     
     % gcf = the handle to the current figure
-    set(gcf, 'color', 'w', ...
+    set(gcf, 'color', 'w', ...  
              'PaperUnits', 'inches', ...
              'PaperSize', [p.Results.PaperWidth, p.Results.PaperHeight], ...
              'PaperPosition', [p.Results.Margin ...
@@ -60,9 +73,6 @@ function high_quality_plot( varargin )
     set(gcf, 'PaperPositionMode', 'Manual');
     
     if ~strcmp(p.Results.Save, '')
-%         print(gcf, '-painters', '-dpdf', '-r300', p.Results.Save);
-        print(gcf, '-painters', '-djpeg', '-r300', p.Results.Save);
-%         print(gcf, '-djpeg', '-r300', p.Results.Save);
-%         save(p.Results.Save);
+        print(gcf, '-painters', sprintf('-d%s', p.Results.Ext), sprintf('-r%d', p.Results.Dpi), p.Results.Save);
     end
 end
