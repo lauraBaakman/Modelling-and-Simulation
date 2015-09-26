@@ -1,7 +1,12 @@
 %!TEX root = practicum1.tex
-We have fixed the value of $K$ to 1, essentially removing the parameter from the equation. By choosing different initial values we can generate discrete points, close curves and orbits with \cref{eq:chirikov}.
+We have fixed the value of $K$ to 1, essentially removing the parameter from the equation. By choosing different initial values we can generate three different kinds: zero-, one and two-dimensional, these different orbits are discussed in respectively \cref{sss:experiment:a:discrete}, \ref{sss:experiment:a:closed} and \ref{sss:experiment:a:2D}.
 
-\subsubsection{Discrete points}
+ % discrete points, close curves and orbits with \cref{eq:chirikov}.
+
+\subsubsection{Discrete Points}
+\label{sss:experiment:a:discrete}
+Zero-dimensional orbits consist of a finite number of points, which are found in the centers of the islands in \cref{fig:a:pretty} \cite{kenzel1997physics}. 
+
 We have generated a one-dimensional Chirikov map by choosing $x_0 = p_0 = 0.5$. Using these values $p_1 = p_0$ since the second term of \eqref{eq:chirikov:p} becomes zero. This results in $x_1 = \left( x_0 + p_{1} \right) \mod 1= 0$. The next steps are easily derived since $p_{n + 1}$ for $n > 0$ will not change due to the fact that both 0 and 0.5 as input to \eqref{eq:chirikov:p} will result in the second term becoming zero. With this initialization $x_{n} \in \left\{0,\, 0.5 \right\} \text{ for } n \geq 0$. To illustrate $x_2$ is $0.5 + 0 = 0.5$ which is equal to $x_1$. We have now shown that $p_n$ is constant for $n \geq 1$ and that $x_n$ jumps between 0 and 0.5, which is illustrated in \cref{fig:experiment:dimension:0:t}. This conclusion also explains the results in \cref{fig:experiment:dimension:0}. 
 
 Furthermore we have shown that these points are visited in a fixed order, which explains the plots in \crefrange{fig:experiment:dimension:0:x}{fig:experiment:dimension:0:p}.\\
@@ -20,6 +25,9 @@ unless $p_1 = 1$. Formally, one should choose $p_0$ in such a way that:
 \end{equation*}
 
 \subsubsection{Closed curves}
+\label{sss:experiment:a:closed}
+One dimensional orbits are represented in the phase-space diagram in \cref{fig:a:pretty} as the closed curves around the islands formed by the zero-dimensional orbits.
+
 We have determined empirically that $\left\{x_0\,, p_0 \right\} = {\num{0.1576131},\,\num{0.9705928}}$ results in closed curves. \Cref{fig:experiment:dimension:1} shows $p_n$ as a function of $x_n$, \crefrange{fig:experiment:dimension:1:x}{fig:experiment:dimension:1:p} shows the progression of respectively $p$ and $x$.\\
 
 Considering these figures we see that the progression of both $p$ and $x$ happens according to a fixed pattern with a seemingly periodic shift. Examining \cref{fig:experiment:dimension:1:t} we see that $x$, the orange dashed points, slowly moves from one extreme to the other, which is reflected in \cref{fig:experiment:dimension:1:x}. Considering $p$ in \cref{fig:experiment:dimension:1:t}, the solid blue line, we find that its value moves between approximately 0.2 and 0.8, and then oscillates around that value before going back to the other value. This is represented in \cref{fig:experiment:dimension:1:p} by the high density areas in the lower left and upper right corners.
@@ -33,8 +41,9 @@ Considering these figures we see that the progression of both $p$ and $x$ happen
 
 Thus we can conclude that the points of \cref{fig:experiment:dimension:1} are visited in a fixed order. Colloquially one could say that the map starts by generating a low density version of \cref{fig:experiment:dimension:1}, see \cref{fig:experiment:a_1_n100}, which is then filled in by iterating over the figure multiple times. Due to the small shift the area of the close curve is filled in after a large number of iterations.
 
-\subsubsection{Orbits}	
-	The empirically determined values $\left\{x_0\,, p_0 \right\} = {\num{0.1269868},\,\num{0.9133759}}$ result in orbits that fill the two-dimensional areas in \cref{fig:experiment:dimension:2}. Comparing \cref{fig:experiment:dimension:1:p} with \cref{fig:experiment:dimension:2:p} we see the same general pattern, however \cref{fig:experiment:dimension:2:p} shows more chaotic behaviour. We observe the same behaviour for $x$ when contrasting \cref{fig:experiment:dimension:1:x} with \cref{fig:experiment:dimension:2:x}. This is supported by comparing \cref{fig:experiment:dimension:1:t} with \cref{fig:experiment:dimension:2:t}, where we find that the blue and orange line have the same trajectory, approximately but that the lines in \cref{fig:experiment:dimension:2:t} change more, and change with a varying value every period.
+\subsubsection{Two-Dimensional Orbits}	
+\label{sss:experiment:a:2D}
+	Two-dimensional orits fill entire areas by jumping around chaotically. The empirically determined values $\left\{x_0\,, p_0 \right\} = {\num{0.1269868},\,\num{0.9133759}}$ result in an orbit that fills the two-dimensional areas in \cref{fig:experiment:dimension:2}. Comparing \cref{fig:experiment:dimension:1:p} with \cref{fig:experiment:dimension:2:p} we see the same general pattern, however \cref{fig:experiment:dimension:2:p} shows more chaotic behaviour. We observe the same behaviour for $x$ when contrasting \cref{fig:experiment:dimension:1:x} with \cref{fig:experiment:dimension:2:x}. This is supported by comparing \cref{fig:experiment:dimension:1:t} with \cref{fig:experiment:dimension:2:t}, where we find that the blue and orange line have the same trajectory, approximately but that the lines in \cref{fig:experiment:dimension:2:t} change more, and change with a varying value every period.
 
 	Since the map with orbits is essentially the same as the map with the closed curves the single points are also visited in a fixed order. 
 
