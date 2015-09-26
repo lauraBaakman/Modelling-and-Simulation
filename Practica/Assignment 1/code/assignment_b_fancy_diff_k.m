@@ -40,5 +40,5 @@ scatter(x(:), p(:), [], colors, 's', 'filled')
 xlabel('{x_n}');
 ylabel('{p_n}');
 
-high_quality_plot('Save', '../report/img/assignment_b_colormap', 'FontSize', 22, 'PaperWidth', 4, 'PaperHeight', 4, 'Margin', 0.05);
+high_quality_plot('Save', '../report/img/assignment_b_colormap', 'FontSize', 13, 'PaperWidth', 4, 'PaperHeight', 4, 'Margin', 0.05);
 
