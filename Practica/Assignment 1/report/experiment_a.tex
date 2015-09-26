@@ -1,7 +1,7 @@
 %!TEX root = practicum1.tex
 We have fixed the value of $K$ to 1, essentially removing the parameter from the equation. By choosing different initial values we can generate three different kinds: zero-, one and two-dimensional, these different orbits are discussed in respectively \cref{sss:experiment:a:discrete}, \ref{sss:experiment:a:closed} and \ref{sss:experiment:a:2D}.
 
- % discrete points, close curves and orbits with \cref{eq:chirikov}.
+
 
 \subsubsection{Discrete Points}
 \label{sss:experiment:a:discrete}
@@ -10,6 +10,13 @@ Zero-dimensional orbits consist of a finite number of points, which are found in
 We have generated a one-dimensional Chirikov map by choosing $x_0 = p_0 = 0.5$. Using these values $p_1 = p_0$ since the second term of \eqref{eq:chirikov:p} becomes zero. This results in $x_1 = \left( x_0 + p_{1} \right) \mod 1= 0$. The next steps are easily derived since $p_{n + 1}$ for $n > 0$ will not change due to the fact that both 0 and 0.5 as input to \eqref{eq:chirikov:p} will result in the second term becoming zero. With this initialization $x_{n} \in \left\{0,\, 0.5 \right\} \text{ for } n \geq 0$. To illustrate $x_2$ is $0.5 + 0 = 0.5$ which is equal to $x_1$. We have now shown that $p_n$ is constant for $n \geq 1$ and that $x_n$ jumps between 0 and 0.5, which is illustrated in \cref{fig:experiment:dimension:0:t}. This conclusion also explains the results in \cref{fig:experiment:dimension:0}. 
 
 Furthermore we have shown that these points are visited in a fixed order, which explains the plots in \crefrange{fig:experiment:dimension:0:x}{fig:experiment:dimension:0:p}.\\
+
+ 	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\columnwidth]{./img/assignment_a_pretty_low_res.pdf}
+		\caption{Phase-space diagram of 500 randomly initialized orbits of the Frenkel-Kontorova model for $K = 1$.}
+		\label{fig:a:pretty}
+	\end{figure}
 
 From this specific case we can derive the following constraints for $p_0$ and $x_0$; $x_0$ should be chosen in such a way that the sine in \cref{eq:chirikov:p} becomes 0, i.e. $x_0 \in \{0,\, 0.5,\, 1\}$. Due to the constraint on $x_0$,
 \begin{equation*}
@@ -39,6 +46,8 @@ Considering these figures we see that the progression of both $p$ and $x$ happen
 	\label{fig:experiment:a_1_n100}
 \end{figure}
 
+\input{experiment_a_images.tex}
+
 Thus we can conclude that the points of \cref{fig:experiment:dimension:1} are visited in a fixed order. Colloquially one could say that the map starts by generating a low density version of \cref{fig:experiment:dimension:1}, see \cref{fig:experiment:a_1_n100}, which is then filled in by iterating over the figure multiple times. Due to the small shift the area of the close curve is filled in after a large number of iterations.
 
 \subsubsection{Two-Dimensional Orbits}	
@@ -48,5 +57,3 @@ Thus we can conclude that the points of \cref{fig:experiment:dimension:1} are vi
 	Since the map with orbits is essentially the same as the map with the closed curves the single points are also visited in a fixed order. 
 
 	As the values of $p$ and $x$ vary more, we plotting $p$ as a function of $x$ results in an area around the curves that we saw in \cref{fig:experiment:dimension:1}.
-
-\input{experiment_a_images.tex}
