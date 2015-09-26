@@ -70,17 +70,17 @@ Fixing $x_0$ and varying $p_0$ results in \cref{fig:experiment:K0influenceOfP}, 
 	\centering
 	\begin{subfigure}{\columnwidth}
 		\centering
-			\includegraphics[width=\textwidth]{./img/assignment_b_dim_0_b_x}
+			\includegraphics[width=\textwidth, height = 0.3\textheight, keepaspectratio=true]{./img/assignment_b_dim_0_b_x}
 			\caption{$x_0 = \num{0.234546}$}
 			\label{fig:experiment:bifurcation:x}
 	\end{subfigure}
 	\begin{subfigure}{\columnwidth}
 		\centering
-			\includegraphics[width=\textwidth]{./img/assignment_b_dim_0_b_p}
+			\includegraphics[width=\textwidth, height = 0.3\textheight, keepaspectratio=true]{./img/assignment_b_dim_0_b_p}
 			\caption{$p_0 = \num{0.112322}$}
 			\label{fig:experiment:bifurcation:p}
 	\end{subfigure}
-	\caption{Bifurcation plot for $x_0 = \num{0.234546}$ and $p_0 = \num{0.112322}$ to illustrate the period doubling like effect in \cref{fig:experiment:fancy_k:2}}
+	\caption{Bifurcation plot for $x_0 = \num{0.234546}$ and $p_0 = \num{0.112322}$ to illustrate the period doubling like effect in \cref{fig:experiment:fancy_k:2}.}
 	\label{fig:experiment:bifurcation}
 \end{figure*}
 
@@ -101,7 +101,7 @@ In \Cref{fig:experiment:fancy_k:8} we can see that chaos increases, as some regi
 \label{ss:b:kam}
 \citeauthor{kenzel1997physics} define Kolmogorov-Arnold-Moser-orbits as one-dimensional orbits that traverse the entire phase-state diagram horizontally, in \cref{fig:experiment:fancy_k} they are represented by the solid lines. Looking closely at \cref{fig:experiment:fancy_k:0} we observe that not all orbits are $KAM$-orbits, since some of the lines are clearly dashed. An interesting property of the KAM-orbits is that it can be shown that chaotic orbits cannot cross the one-dimensional orbits \cite{kenzel1997physics}. Consequently they restrict the extent of the chaos of the two-dimensional orbits.\\
 
-\begin{figure*}
+\begin{figure}[t]
 	\centering
 	\begin{subfigure}{\columnwidth}
 		\centering
@@ -117,7 +117,7 @@ In \Cref{fig:experiment:fancy_k:8} we can see that chaos increases, as some regi
 	\end{subfigure}	
 	\caption{$p_n$ as a function of $x_n$ for $0.4 \leq x_n \leq 0.6$, $0 \leq p_n \leq 0.15$ and $0 \leq n \leq 250$. \subref{fig:experiment:b:96} show the phase-state diagram for $K = 0.970000$ and \subref{fig:experiment:b:KC} for $K + K_c$. The 200 initial values for $p$ and $x$ where chosen randomly, but were identical for both values of $K$.}
 	\label{fig:experiment:b:testKC}
-\end{figure*}
+\end{figure}
 
 \citeauthor{greene1979method} observed that for small values of $K$ there are many KAM orbits that encircle the islands horizontally, see \cref{fig:experiment:fancy_k:0}, \ref{fig:experiment:fancy_k:2} and \ref{fig:experiment:fancy_k:4}. These KAM orbits divide the space into several compartments which may contain chaotic orbits. For larger values of $K$ there are fewer KAM orbits and individual chaotic orbits occur a greater are of the phase space. Finally at some critical value of $K$, called $K_c$, the last KAM orbit disappears, this effect can be observed in \cref{fig:experiment:fancy_k:10}. 
 
