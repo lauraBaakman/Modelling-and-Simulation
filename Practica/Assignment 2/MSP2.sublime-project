@@ -29,6 +29,10 @@
 				"*.blg",
 				"*.run.xml"
 			],
+			"folder_exclude_patterns":
+			[
+				"img",
+			],
 			"follow_symlinks": true,
 			"name": "Report",
 			"path": "./report"
