@@ -20,7 +20,6 @@ function high_quality_plot( varargin )
         tf = isnumeric(x) && (x > 0 && x < 1200); % Ofzo....
     end
 
-
     p.addOptional('PaperWidth', 4, @isnumeric);
     p.addOptional('PaperHeight', 4, @isnumeric);
     p.addOptional('Margin', 0.1, @isnumeric);
