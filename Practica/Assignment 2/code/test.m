@@ -1,4 +1,4 @@
-clc;
+clc; clear all; close all;
 
 grid = zeros(3,3);
 grid(2,2) = 1;
@@ -16,7 +16,8 @@ mask_four(1,3) = 0;
 mask_four(3,1) = 0;
 mask_four(3,3) = 0;
 
-[grid, sites] = grow(grid, [2,2], mask_four, 0.5);
+N = 3;
+p = 0.5;
 
-display(grid)
-display(sites)
+[grid, queue] = percolation(3, mask_four, 0.5);
+plotGrid(grid, 100, sprintf('../report/img/grid_p%d_N%d.png', round(p * 100), N));
