@@ -20,3 +20,4 @@ mask_four(3,3) = 0;
 
 display(grid)
 display(sites)
+
