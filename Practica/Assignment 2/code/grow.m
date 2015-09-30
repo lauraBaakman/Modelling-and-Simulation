@@ -1,11 +1,14 @@
-function [ grid, sites ] = grow( grid, point, mask, p)
-    %UNTITLED Summary of this function goes here
-    %   Detailed explanation goes here
+function [ grid, sites ] = grow( grid, site, mask, p)
+    %GROW Performs a single iteration of the percolation
+    %   Returns the grid after single itteration growth has been calculated
+    %   on the grid(site), using the mask en probability p.
     
-    top_row = point(2) - (size(mask, 1) - 1) / 2;
-    bottom_row = point(2) + (size(mask, 1) - 1) / 2;
-    left_col = point(1) - (size(mask, 2) - 1) / 2;
-    right_col = point(1) + (size(mask, 2) - 1) / 2;
+    [mask_height, mask_width] = mask_size(mask);
+    
+    top_row = site(2) - mask_height;
+    bottom_row = site(2) + mask_height;
+    left_col = site(1) - mask_width;
+    right_col = site(1) + mask_height;
     
     sub_grid = grid(top_row:bottom_row, left_col:right_col);
     
@@ -20,7 +23,7 @@ function [ grid, sites ] = grow( grid, point, mask, p)
     
     grid(top_row:bottom_row, left_col:right_col) = sub_grid;
     
-    sites = [rows, cols];
+    sites = repmat([top_row, left_col], size(rows, 1), 1) + ([rows, cols] - 1);
 end
 
 
