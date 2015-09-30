@@ -6,30 +6,49 @@ function [ grid, queue ] = percolation( N, mask, p )
     
     [grid, site, max_sites] = init_grid(N, mask);
     
-    site_idx = 1;
-    queue_end = 2;
-    queue = nan(max_sites * p, 2);
-    queue(site_idx, :) = site;
+%     global site_idx queue_end;
+    queue = init_queue(round(max_sites * p), 2);
+    queue = push(queue, site);
     
-    while ~stop(grid(site(1), site(2))) 
+    while ~stop(grid(site(1), site(2)))
         [grid, next_sites] = grow(grid, site, mask, p);
         
-        queue(queue_end:queue_end + size(next_sites, 1)  - 1, :) = next_sites;
-        queue_end = queue_end + size(next_sites, 1);
+        queue = push(queue, next_sites);
         
         if on_border(site, grid, mask)
             break;
         end
-        
-        site_idx = site_idx + 1;
-        if site_idx >= queue_end
+
+        site = pop(queue);
+        if(isempty(site))
             break;
         end
-        
-        site = queue(site_idx, :);
     end
     
     grid = remove_padding(grid, mask);
+end
+
+function [site] = pop(queue)
+    global site_idx queue_end;
+    site_idx = site_idx + 1;
+    if site_idx >= queue_end
+        site = {};
+    else
+        site = queue(site_idx, :);
+    end
+end
+
+function [queue] = init_queue(rows, cols)
+    global site_idx queue_end;
+    site_idx = 1;
+    queue_end = 1;
+    queue = nan(rows, cols);
+end
+
+function [queue] = push(queue, elements)
+    global queue_end;
+    queue(queue_end:queue_end + size(elements, 1) - 1, :) = elements;
+    queue_end = queue_end + size(elements, 1);
 end
 
 function [b] = on_border(site, grid, mask)
@@ -61,7 +80,7 @@ function [grid, center, max_sites] = init_grid(N, mask)
     grid(center(1), center(2)) = 1;
     
     [padding_rows, padding_cols] = mask_size(mask);
-    grid = padarray(grid, [padding_rows, padding_cols], NaN);  
+    grid = padarray(grid, [padding_rows, padding_cols], NaN);
     
     center = center + [padding_rows, padding_cols];
 end
