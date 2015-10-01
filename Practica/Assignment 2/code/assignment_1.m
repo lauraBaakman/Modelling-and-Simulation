@@ -18,22 +18,23 @@ mask(3,3) = 0;
 
 num_ps = length(ps);
 clusters_stats = struct('probabilities', ps, ...
-                        'means', nan(num_ps), ...
-                        'stds', nan(num_ps), ...
+                        'means', nan(num_ps, 1), ...
+                        'stds', nan(num_ps, 1), ...
                         'finite_ratio', nan(num_ps, 1));
                     
 tic
 for p_idx = 1 : length(ps);
-    cluster_sizes = nan(1, max_runs);
-    stop_conditions = nan(1, max_runs);
+    cluster_sizes = nan(max_runs, 1);
+    stop_conditions = nan(max_runs, 1);
     for run = 1 : max_runs
         [grid, queue, stop_condition] = percolation(N, mask, ps(p_idx));
-        stop_conditions(1, run) = stop_condition;
-        cluster_sizes(1, run) = nansum(grid(:));
+        stop_conditions(run) = stop_condition;
+        cluster_sizes(run) = nansum(grid(:));
     end
+    stop_conditions = logical(stop_conditions);
     clusters_stats.means(p_idx) = mean(cluster_sizes(stop_conditions));
     clusters_stats.stds(p_idx) = std(cluster_sizes(stop_conditions));
-    clusters_stats.num_finite(p_idx) = mean(stop_conditions);
+    clusters_stats.finite_ratio(p_idx) = mean(stop_conditions);
 end
 
 display(clusters_stats, 'Clusters statistics (p, mean, std)');

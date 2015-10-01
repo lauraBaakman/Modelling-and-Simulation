@@ -1,25 +1,43 @@
-clc; clear all; close all;
+function [] = test()
+ 
+queue = init_queue(10, 2)
 
-grid = zeros(3,3);
-grid(2,2) = 1;
+is_empty(queue)
 
-grid(1,1) = NaN;
-grid(1,2) = NaN;
-grid(2,1) = 1;
+queue = push(queue, rand(11, 2));
 
-display(grid)
+is_empty(queue)
 
-mask_eight = ones(3,3);
-mask_four = ones(3,3);
-mask_four(1,1) = 0;
-mask_four(1,3) = 0;
-mask_four(3,1) = 0;
-mask_four(3,3) = 0;
+elem = pop(queue)
 
-N = 3;
-p = 0.5;
+is_empty(queue)
+    
+end
 
+function [bool] = is_empty(queue)
+    global site_idx queue_end;
+    bool = site_idx >= queue_end;
+end
 
-[grid, queue] = percolation(3, mask_four, 0.5);
-plotGrid(grid, 100, sprintf('../report/img/grid_p%d_N%d.png', round(p * 100), N));
+function [site] = pop(queue)
+    global site_idx;
+    if is_empty(queue)
+        site = {};
+    else
+        site = queue(site_idx, :);
+    end
+    site_idx = site_idx + 1;
+end
 
+function [queue] = init_queue(rows, cols)
+    global site_idx queue_end;
+    site_idx = 1;
+    queue_end = 1;
+    queue = nan(rows, cols);
+end
+
+function [queue] = push(queue, elements)
+    global queue_end;
+    queue(queue_end:queue_end + size(elements, 1) - 1, :) = elements;
+    queue_end = queue_end + size(elements, 1);
+end
