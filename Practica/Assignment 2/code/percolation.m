@@ -1,6 +1,8 @@
-function [ grid, queue ] = percolation( N, mask, p )
+function [ grid, queue, stop_reason] = percolation( N, mask, p )
     %PERCOLATION Summary of this function goes here
     %   Detailed explanation goes here
+    
+    global stop_reasons
     
     check_mask(mask);
     
@@ -10,32 +12,36 @@ function [ grid, queue ] = percolation( N, mask, p )
     queue = init_queue(round(max_sites * p), 2);
     queue = push(queue, site);
     
-    while ~stop(grid(site(1), site(2)))
+    while ~is_empty(queue)
+        site = pop(queue);
+        
         [grid, next_sites] = grow(grid, site, mask, p);
         
         queue = push(queue, next_sites);
         
         if on_border(site, grid, mask)
-            break;
-        end
-
-        site = pop(queue);
-        if(isempty(site))
+            stop_reason = stop_reasons.PERCOLATING;         
             break;
         end
     end
-    
+    stop_reason = stop_reasons.FINITE;
     grid = remove_padding(grid, mask);
+    
+end
+
+function [bool] = is_empty(queue)
+    global site_idx queue_end;
+    bool = site_idx >= queue_end;
 end
 
 function [site] = pop(queue)
-    global site_idx queue_end;
-    site_idx = site_idx + 1;
-    if site_idx >= queue_end
+    global site_idx;
+    if is_empty(queue)
         site = {};
     else
         site = queue(site_idx, :);
     end
+    site_idx = site_idx + 1;
 end
 
 function [queue] = init_queue(rows, cols)
@@ -66,6 +72,7 @@ end
 
 function [b_stop] = stop(site)
     b_stop = isnan(site);
+    
 end
 
 
