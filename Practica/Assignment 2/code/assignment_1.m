@@ -38,13 +38,18 @@ errorbar(clusters_stats.means, clusters_stats.stds / 2, ...
     'LineWidth', 3, 'Color', color, ...
     'Clipping', 'off');
 
-set(gca, 'XTick', 1:length(ps));
-set(gca, 'XTickLabel', ps);
+ylim([-30, 800]);
+set(gca, 'YTick', (0:100:800));
+
+xlim([0, 42]);
+set(gca, 'XTick', (1:10:41));
+set(gca, 'XTickLabel', ps(1:10:41));
+set(gca, 'XMinorTick', 'on');
 
 xlabel('p');
 ylabel('Mean cluster size');
 
-high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, 'FontSize', 22, 'PaperWidth', 8, 'PaperHeight', 8, 'Margin', 0.05);
+high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, 'FontSize', 22, 'PaperWidth', 12, 'PaperHeight', 8, 'Margin', 0.05);
 
 
 
