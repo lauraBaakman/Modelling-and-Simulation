@@ -6,9 +6,13 @@ stop_reasons.PERCOLATING = 0;
 stop_reasons.FINITE = 1;
 
 
-N = 20;
-ps = (0.3:0.01:0.7);
-max_runs = 200;
+N = 2;
+ps = (0.3:0.1:0.7);
+max_runs = 1;
+
+% N = 20;
+% ps = (0.3:0.01:0.7);
+% max_runs = 200;
 
 mask = ones(3,3);
 mask(1,1) = 0;
@@ -36,8 +40,6 @@ for p_idx = 1 : length(ps);
     clusters_stats.stds(p_idx) = std(cluster_sizes(stop_conditions));
     clusters_stats.finite_ratio(p_idx) = mean(stop_conditions);
 end
-
-display(clusters_stats, 'Clusters statistics (p, mean, std)');
 toc
 
 %% Plot
@@ -49,12 +51,12 @@ errorbar(clusters_stats.means, clusters_stats.stds / 2, ...
     'LineWidth', 3, 'Color', color, ...
     'Clipping', 'off');
 
-ylim([-30, 800]);
-set(gca, 'YTick', (0:100:800));
+ylim([-30, N * 2 + 1]);
+set(gca, 'YTick', linspace(0, N * 2 + 1, (N * 2 + 1) / length(ps)));
 
 xlim([0, 42]);
-set(gca, 'XTick', (1:10:41));
-set(gca, 'XTickLabel', ps(1:10:41));
+set(gca, 'XTick', (1:10:length(ps)));
+set(gca, 'XTickLabel', ps(1:10:length(ps)));
 set(gca, 'XMinorTick', 'on');
 
 xlabel('p');

@@ -8,7 +8,8 @@ function [ grid, queue, stop_reason] = percolation( N, mask, p )
     
     [grid, site, max_sites] = init_grid(N, mask);
     
-%     global site_idx queue_end;
+    stop_reason = {};
+    
     queue = init_queue(round(max_sites * p), 2);
     queue = push(queue, site);
     
@@ -20,11 +21,14 @@ function [ grid, queue, stop_reason] = percolation( N, mask, p )
         queue = push(queue, next_sites);
         
         if on_border(site, grid, mask)
-            stop_reason = stop_reasons.PERCOLATING;         
+            stop_reason = stop_reasons.PERCOLATING;   
+            sprintf('Terminating, since percolating.');
             break;
         end
     end
-    stop_reason = stop_reasons.FINITE;
+    if(isempty(stop_reason))
+        stop_reason = stop_reasons.FINITE;
+    end
     grid = remove_padding(grid, mask);
     
 end
