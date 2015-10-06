@@ -27,7 +27,7 @@ for k = ks
     
     xlabel('{x_n}');
     ylabel('{p_n}');
-    high_quality_plot('Save', sprintf('../report/img/assignment_b_fancy_k_%d', round(k*10000)), 'FontSize', 22, 'PaperWidth', 5, 'PaperHeight', 5, 'Margin', 0.05);
+    high_quality_plot('Save', sprintf('../report/img/assignment_b_fancy_k_%d', round(k*10000)), 'FontSize', 12, 'PaperWidth', 4, 'PaperHeight', 4, 'Margin', 0.05);
     
     close all;
 end
