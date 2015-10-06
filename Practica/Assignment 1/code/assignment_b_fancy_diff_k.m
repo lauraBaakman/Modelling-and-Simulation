@@ -3,8 +3,8 @@ clc; clear all; close all force;
 num_runs = 100;
 num_iter = 1000;
 
-% ks = [0, 0.2, 0.4, 0.6, 0.8, 1, 2, 3, 4];
-ks = 0.6;
+ks = [0, 0.2, 0.4, 0.6, 0.8, 1, 2, 3, 4];
+% ks = 0.6;
 
 % colors = lbmap(num_runs, 'RedBlue');
 
@@ -20,8 +20,11 @@ for k = ks
     end
     hold off;
  
-    set(gca, 'visible', 'off');
-    high_quality_plot('Save', sprintf('../report/img/assignment_b_fancy_k_%d', round(k*10)), 'Ext', 'jpeg', 'FontSize', 22, 'PaperWidth', 4, 'PaperHeight', 4, 'Margin', 0.05);
+%     set(gca, 'visible', 'off');
+    xlabel('{x_n}');
+    ylabel('{p_n}');
+    
+    high_quality_plot('Save', sprintf('../report/img/assignment_b_fancy_k_%d', round(k*10)), 'Ext', 'jpeg', 'FontSize', 12, 'PaperWidth', 4, 'PaperHeight', 4, 'Margin', 0.05);
     
     close all;
 end
