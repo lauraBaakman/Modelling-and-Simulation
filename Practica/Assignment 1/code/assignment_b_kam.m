@@ -22,11 +22,12 @@ for k = ks
         map = chirikov_map(k, x_0, p_0, num_iter);
         scatter(map(:, 1), map(:, 2), 0.5, 'filled', 'MarkerFaceColor', [0.5 x_0 p_0]);
     end
-    axis([0.4, 0.6, 0, 0.1])
+    axis([0.4, 0.6, 0.3, 0.7])
     hold off;
     
-    set(gca, 'visible', 'off');
-    high_quality_plot('Save', sprintf('../report/img/assignment_b_fancy_k_%d', round(k*10000)), 'FontSize', 22, 'PaperWidth', 4, 'PaperHeight', 2, 'Margin', 0.05);
+    xlabel('{x_n}');
+    ylabel('{p_n}');
+    high_quality_plot('Save', sprintf('../report/img/assignment_b_fancy_k_%d', round(k*10000)), 'FontSize', 22, 'PaperWidth', 5, 'PaperHeight', 5, 'Margin', 0.05);
     
     close all;
 end
