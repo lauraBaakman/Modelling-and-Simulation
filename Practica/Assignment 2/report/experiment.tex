@@ -7,7 +7,9 @@
 	\todo[inline]{Discuss cluster size statistics, mean cluster size M and sd as a function p for finite clusters}
 	\todo[inline]{Determine some vague fraction}
 
-To investigate the effect of different $p$ on a lattice with a constant size we perform the following experiment. We opt for a lattice size, with $N = 20$, which results in $41 \times 41$ sized grid. We calculate the mean and standard deviation over $r_{max} = 200$, with the range of $p$ between $0.3$ and $0.7$.
+To investigate the effect of different $p$ on a lattice with a constant size we perform the following experiment. We opt for a lattice size, with $N = 20$, which results in $41 \times 41$ sized grid. We calculate the mean and standard deviation of the finite clusters over $r_{max} = 200$ runs. The probability of growth $p$ is incremented with $0.01$ ranging from $0.3$ to $0.7$. The resulting statistics for all $p$ are shown in \cref{fig:experiment:mean_std_clusters}.
+
+We observe that the mean cluster sizes up to approximately $p = 0.55$ generally increase, which is consistent with the definition of $p$. With $p > 0.55$ we see that the mean cluster sizes start do decrease again. This drop in mean cluster size can be explained with the plot shown in \cref{fig:experiment:p_inf_ratio}. \Cref{fig:experiment:p_inf_ratio} shows the $P_\infty$ ratio as a function of $p$, where the $P_\infty$ is the ratio of `infinite' clusters. Looking at approximately $p = 0.55$ we see that the number of finite clusters decrease... \todo[inline]{Which is not as obvious, as I first thought so need to look at theory...}
 
 \begin{figure*}
 	\centering
@@ -19,7 +21,7 @@ To investigate the effect of different $p$ on a lattice with a constant size we 
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{./img/assignment_a_p_infinite_ratio_p.pdf}
-	\caption{Caption here}
+	\caption{Ratio of percolating clusters, $P_\infty$, as a function of $p$. Ratios calculated over $r_{max} = 200$ runs on a grid size of $41 \times 41$.}
 	\label{fig:experiment:p_inf_ratio}
 \end{figure}
 
