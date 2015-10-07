@@ -19,8 +19,11 @@ function [] = plot_grid(queue, grid, mask, pixelWidth, filename)
     
 %     figure('name', 'Colour')
     colour_grid = imresize(colour_grid, [NaN pixelWidth], 'nearest');
-    imshow(colour_grid, 'InitialMagnification', 'fit');
-    imwrite(colour_grid, filename);
+    
+    imagesc(colour_grid);
+    high_quality_plot()
+%     imshow(colour_grid, 'InitialMagnification', 'fit');
+%     imwrite(colour_grid, filename);
     
 %     figure('name', 'Black and White')
 %     grid = fix_values(grid);
