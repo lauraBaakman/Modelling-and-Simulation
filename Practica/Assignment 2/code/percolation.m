@@ -18,13 +18,13 @@ function [ grid, queue, stop_reason] = percolation( N, mask, p )
         
         [grid, next_sites] = grow(grid, site, mask, p);
         
-        queue = push(queue, next_sites);
-        
         if on_border(site, grid, mask)
             stop_reason = stop_reasons.PERCOLATING;
             % fprintf('Terminating, since percolating.');
             break;
         end
+
+        queue = push(queue, next_sites);
     end
     if(isempty(stop_reason))
         stop_reason = stop_reasons.FINITE;
