@@ -1,3 +1,21 @@
 %!TEX root = practicum2.tex
 	\todo[inline]{How do the results change when the system size changes. Experiment with different latice sizes}
 	\todo[inline]{Wat could the behavior be in the limit of infinite lattice sizes}
+
+	\begin{figure*}
+	\centering
+	\foreach \N in {5, 20}{
+		\begin{subfigure}[t]{\columnwidth}
+			\includegraphics[width=\textwidth]{./img/fancy_cluster_N\n_p3.pdf}
+			\caption{Caption}
+			\label{fig:experiment:cluster:N\n}
+		\end{subfigure}
+		\begin{subfigure}[t]{\columnwidth}
+			\includegraphics[width=\textwidth]{./img/fancy_cluster_N\n_p3.pdf}
+			\caption{Caption}
+			\label{fig:experiment:cluster:N\n}
+		\end{subfigure}	
+	}	
+	\caption{Caption}
+	\label{fig:experiment:dimension}
+\end{figure*}
