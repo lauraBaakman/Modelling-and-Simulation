@@ -21,19 +21,20 @@ function [ grid, queue, stop_reason] = percolation( N, mask, p )
         queue = push(queue, next_sites);
         
         if on_border(site, grid, mask)
-            stop_reason = stop_reasons.PERCOLATING;   
-            sprintf('Terminating, since percolating.');
+            stop_reason = stop_reasons.PERCOLATING;
+            % fprintf('Terminating, since percolating.');
             break;
         end
     end
     if(isempty(stop_reason))
         stop_reason = stop_reasons.FINITE;
+        % fprintf('Terminating, since finite.');
     end
     grid = remove_padding(grid, mask);
     
 end
 
-function [bool] = is_empty(queue)
+function [bool] = is_empty(~)
     global site_idx queue_end;
     bool = site_idx >= queue_end;
 end
