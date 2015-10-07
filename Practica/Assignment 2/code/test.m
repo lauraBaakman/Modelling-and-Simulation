@@ -1,43 +1,23 @@
-function [] = test()
- 
-queue = init_queue(10, 2)
+clc; clear all; close all force;
 
-is_empty(queue)
-
-queue = push(queue, rand(11, 2));
-
-is_empty(queue)
-
-elem = pop(queue)
-
-is_empty(queue)
+global stop_reasons
+stop_reasons.PERCOLATING = 0;
+stop_reasons.FINITE = 1;
     
-end
+N = 20;
+ps = (0.3:0.01:0.7);
+max_runs = 200;
 
-function [bool] = is_empty(queue)
-    global site_idx queue_end;
-    bool = site_idx >= queue_end;
-end
+mask = ones(3,3);
+mask(1,1) = 0;
+mask(1,3) = 0;
+mask(3,1) = 0;
+mask(3,3) = 0;
 
-function [site] = pop(queue)
-    global site_idx;
-    if is_empty(queue)
-        site = {};
-    else
-        site = queue(site_idx, :);
-    end
-    site_idx = site_idx + 1;
-end
+[grid, queue, stop_condition] = percolation(N, mask, 0.5);
 
-function [queue] = init_queue(rows, cols)
-    global site_idx queue_end;
-    site_idx = 1;
-    queue_end = 1;
-    queue = nan(rows, cols);
-end
+display(nansum(grid(:)), 'Cluster size');
+% display(queue);
+display(stop_condition);
 
-function [queue] = push(queue, elements)
-    global queue_end;
-    queue(queue_end:queue_end + size(elements, 1) - 1, :) = elements;
-    queue_end = queue_end + size(elements, 1);
-end
+plot_grid(grid, size(grid, 2), 'test.png');
