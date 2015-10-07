@@ -4,7 +4,9 @@ global stop_reasons
 stop_reasons.PERCOLATING = 0;
 stop_reasons.FINITE = 1;
     
-N = 20;
+rng(3);
+
+N = 40;
 ps = (0.3:0.01:0.7);
 max_runs = 200;
 
@@ -16,8 +18,4 @@ mask(3,3) = 0;
 
 [grid, queue, stop_condition] = percolation(N, mask, 0.5);
 
-display(nansum(grid(:)), 'Cluster size');
-% display(queue);
-display(stop_condition);
-
-plot_grid(grid, size(grid, 2), 'test.png');
+plot_grid(queue, grid, mask, size(grid, 2), 'test.png');
