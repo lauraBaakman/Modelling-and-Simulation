@@ -39,7 +39,7 @@ function [colors] = generate_colors(grid)
     numberOfFilledLocations = sum(grid(:) == 1);
     start_colour = [11, 91, 180] ./ 256;
     end_colour = [178, 0, 2] ./ 256;
-    colors = colorRamp([start_colour; end_colour], numberOfFilledLocations);
+    colors = color_ramp([start_colour; end_colour], numberOfFilledLocations);
 end
 
 function [queue] = fix_queue(queue, mask)
@@ -61,7 +61,6 @@ function [grid] = fill_color_grid(grid, rows, cols, colours)
 end
 
 function [grid] = fix_values(grid)
-%     grid(grid == 0) = 0.5;
     grid(isnan(grid)) = 0.5;    
 end
 
