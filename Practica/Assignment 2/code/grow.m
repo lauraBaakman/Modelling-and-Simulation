@@ -5,10 +5,10 @@ function [ grid, sites ] = grow( grid, site, mask, p)
     
     [mask_height, mask_width] = mask_size(mask);
     
-    top_row = site(2) - mask_height;
-    bottom_row = site(2) + mask_height;
-    left_col = site(1) - mask_width;
-    right_col = site(1) + mask_height;
+    top_row = site(1) - mask_height;
+    bottom_row = site(1) + mask_height;
+    left_col = site(2) - mask_width;
+    right_col = site(2) + mask_height;
     
     sub_grid = grid(top_row:bottom_row, left_col:right_col);
     

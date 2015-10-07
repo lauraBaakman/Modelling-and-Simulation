@@ -4,11 +4,6 @@ clc; clear all; close all force;
 global stop_reasons
 stop_reasons.PERCOLATING = 0;
 stop_reasons.FINITE = 1;
-
-
-% N = 2;
-% ps = (0.3:0.1:0.7);
-% max_runs = 1;
     
 N = 20;
 ps = (0.3:0.01:0.7);
@@ -42,25 +37,46 @@ for p_idx = 1 : length(ps);
 end
 toc
 
-%% Plot
+%% Plot Finite cluster means
+close all
 figure('name', 'Mean and std as function of p');
 color = lbmap(1, 'RedBlue');
 
-errorbar(clusters_stats.means, clusters_stats.stds / 2, ...
-    'o', 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 8, ...
+errorbar(clusters_stats.means, clusters_stats.stds, ...
+    'o', 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 4, ...
     'LineWidth', 3, 'Color', color, ...
     'Clipping', 'off');
 
-% ylim([-30, N * 2 + 1]);
+ylim([min(clusters_stats.means - clusters_stats.stds) - 10, max(clusters_stats.means + clusters_stats.stds) + 10]);
 % set(gca, 'YTick', linspace(0, N * 2 + 1, (N * 2 + 1) / length(ps)));
 
-% xlim([0, 42]);
-% set(gca, 'XTick', (1:10:length(ps)));
-% set(gca, 'XTickLabel', ps(1:10:length(ps)));
-% set(gca, 'XMinorTick', 'on');
+xlim([0, 42]);
+set(gca, 'XTick', (1:10:length(ps)));
+set(gca, 'XTickLabel', ps(1:10:length(ps)));
+set(gca, 'XMinorTick', 'on');
 
 xlabel('p');
 ylabel('Mean cluster size');
 
-high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, 'FontSize', 22, 'PaperWidth', 12, 'PaperHeight', 8, 'Margin', 0.05);
+high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, ...
+    'FontSize', 10, 'PaperSize', 442.65375, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.75);
+
+%% Plot P_infinite
+close all;
+figure('name', 'Inifinite cluster ratio as function of p');
+color = lbmap(1, 'RedBlue');
+
+plot(1 - clusters_stats.finite_ratio, 'LineWidth', 2, 'Color', color);
+
+xlabel('p');
+ylabel('{P_\infty}');
+
+xlim([0, 42]);
+set(gca, 'XTick', (1:10:length(ps)));
+set(gca, 'XTickLabel', ps(1:10:length(ps)));
+set(gca, 'XMinorTick', 'on');
+
+high_quality_plot('Save', '../report/img/assignment_a_p_infinite_ratio_p', 'Ext', 'pdf', 'Dpi', 300, ...
+    'FontSize', 10, 'PaperSize', 216.32687, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.75);
+
 
