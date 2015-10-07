@@ -1,16 +1,33 @@
 %!TEX root = practicum2.tex
 % \todo[inline]{Bonus: Determine the fractal dimension of finite clusters as a function of $p$.}
-\todo[inline]{Definitie van fractal dimension uit een reputable source trekken, huidige is van wikipedia}
-\textcite{} defines a fractal dimension as a ratio providing a statistical index of complexity comparing how detail in a pattern changes with the scale at which it is measured. 
+\todo[inline]{Definitie van fractal dimension}
 
-\todo[inline]{BoxCounting uitleggen}
+\todo[inline]{Welke fractal dimension hebben anderen gevonden?}
 
-We have used the function \t{boxcount} by \textcite{boxCounting} to determine the fractal dimension of different clusters. 
+\todo[inline]{Boxcounting = Minkowski–Bouligand dimension uitleggen met source}
+	\begin{equation}
+		\text{dim}_{\text{box}} = \lim_{\epsilon \to 0} \frac{\log N(\epsilon)}{\log\left[ \frac{1}{\epsilon} \right]}.
+	\end{equation}
 
-\todo[inline]{Algoritme}
+We have used the function \t{boxcount} by \textcite{boxCounting} to determine the fractal dimension of different clusters. This method uses boxsizes that are power of two consequently $\varepsilon = 1, 2, 3, \dotsc 2^Q$ where $Q$ is the smallest integer such that $Q \leq (2N + 1)$. We have used the boxcounting algorithm on a cluster generated with $N= 80$, $p = 0.7$, the used cluster is shown in \cref{fig:exp_fractal:cluster}.
 
-\todo[inline]{Plaatje}
+\begin{figure}
+	\centering
+	% \includegraphics[width=1\columnwidth]{./img/exp_fractal_cluster}
+	\missingfigure{The cluster used as input for the boxcounting algorithm.}
+	\caption{The cluster used to determine the Minkowski-Bouligand dimension, the clusters was generated with $N = 80$, $p = 0.7$.}
+	\label{fig:exp_fractal:cluster}
+\end{figure}
 
-\todo[inline]{Blaat}
+\Cref{fig:exp_fractal:minkowskiDimension} presents the number of boxes as a function of the size of the boxes. \todo[inline]{Observatie}
+\todo[inline]{Past de gevonden fractal dimension met de theorie?}
 
-\todo[inline]{Theorie?}
+\begin{figure}
+	\centering
+	% \includegraphics[width=1\columnwidth]{./img/exp_fractal_cluster}
+	\missingfigure{The number of boxes as function of the box size.}
+	\caption{The number of boxes used to cover a cluster ($N = 80, p = 0.7$) as a function of the box size for the cluster presented in \cref{fig:exp_fractal:cluster}.}
+	\label{fig:exp_fractal:minkowskiDimension}
+\end{figure}
+
+
