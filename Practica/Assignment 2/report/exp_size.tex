@@ -4,18 +4,15 @@
 
 	\begin{figure*}
 	\centering
-	\foreach \N in {5, 20}{
-		\begin{subfigure}[t]{\columnwidth}
-			\includegraphics[width=\textwidth]{./img/fancy_cluster_N\n_p3.pdf}
-			\caption{Caption}
-			\label{fig:experiment:cluster:N\n}
+	\foreach \pfn/\p in {3/0.3, 7/0.7}{
+		\foreach \N in {5, 20, 80}{
+		\begin{subfigure}[t]{0.32\textwidth}
+			\includegraphics[width=\textwidth]{./img/fancy_cluster_N\N_p\pfn.jpg}
+			\caption{$N = \N$ and $p = \p$}
+			\label{fig:experiment:cluster:N\N_p\p}
 		\end{subfigure}
-		\begin{subfigure}[t]{\columnwidth}
-			\includegraphics[width=\textwidth]{./img/fancy_cluster_N\n_p3.pdf}
-			\caption{Caption}
-			\label{fig:experiment:cluster:N\n}
-		\end{subfigure}	
-	}	
+		}
+	}
 	\caption{Caption}
 	\label{fig:experiment:dimension}
 \end{figure*}
