@@ -21,18 +21,24 @@ function high_quality_plot( varargin )
     end
 
     p.addOptional('PaperSize', 345, @isnumeric);
-    p.addOptional('PaperWidthRatio', 4, @isnumeric);
-    p.addOptional('Margin', 0.1, @isnumeric);
-    p.addOptional('FontSize', 18, @isnumeric);
+    p.addOptional('PaperWidthRatio', 1, @isnumeric);
+    p.addOptional('PaperWidthHeightRatio', 1, @isnumeric);
+%     p.addOptional('Margin', 0.1, @isnumeric);
+    p.addOptional('FontSize', 10, @isnumeric);
     p.addOptional('Box', 'off');
     p.addOptional('Axis', 'normal');
     
     parse(p, varargin{:});
     
-    % gca = the handle to the current axis in the current figure. 
-    set(get(gca, 'xlabel'), 'FontSize', p.Results.FontSize, 'FontWeight', 'Bold');
-    set(get(gca, 'ylabel'), 'FontSize', p.Results.FontSize, 'FontWeight', 'Bold');
-    set(get(gca, 'title') , 'FontSize', p.Results.FontSize, 'FontWeight', 'Bold');
+    validFontNames = {'AvantGarde'; 'Bookman'; 'Courier'; 'Helvetica'; ...
+		'Helvetica-Narrow'; 'NewCenturySchoolBook'; 'Palatino'; ...
+		'Symbol'; 'Times'; 'ZapfChancery'; 'ZapfDingbats'};
+    fontname = char(validFontNames(6));
+    
+    % gca = the handle to the current axis in the current figure. set(0,'defaulttextinterpreter','latex');
+    set(get(gca, 'xlabel'), 'FontSize', p.Results.FontSize, 'FontWeight', 'Normal', 'FontName', fontname);
+    set(get(gca, 'ylabel'), 'FontSize', p.Results.FontSize, 'FontWeight', 'Normal', 'FontName', fontname);
+    set(get(gca, 'title') , 'FontSize', p.Results.FontSize, 'FontWeight', 'Normal', 'FontName', fontname);
     
     % box on; adds a box to the current axes. box off takes it off
     if strcmp(p.Results.Box, 'off')
@@ -49,16 +55,17 @@ function high_quality_plot( varargin )
     end
     
     % more (better) defaults for the axes
-    set(gca, 'LineWidth', 2, ...
-             'FontSize', p.Results.FontSize - 2, ...
-             'FontWeight', 'Normal');
+    set(gca, 'LineWidth', 1, ...
+             'FontSize', p.Results.FontSize, ...
+             'FontWeight', 'Normal',...
+             'FontName', fontname);
          
-    set(legend, 'FontSize', p.Results.FontSize - 4);
-    set(legend, 'FontWeight', 'Normal');
+    set(legend, 'FontSize', p.Results.FontSize, 'FontName', fontname);
+    set(legend, 'FontWeight', 'Normal', 'FontName', fontname);
     legend boxoff;
     
-    set(gca,'FontName', 'Helvetica');
-    set(findall(gcf,'type','text'),'FontName','Helvetica');
+    set(gca,'FontName', fontname);
+    set(findall(gcf,'type','text'),'FontName', fontname);
     
     % gcf = the handle to the current figure
 %     set(gcf, 'color', 'w', ...  
@@ -69,14 +76,17 @@ function high_quality_plot( varargin )
 %                                p.Results.PaperWidth - 2 * p.Results.Margin ...
 %                                p.Results.PaperHeight - 2 * p.Results.Margin]);
 
-    margin = 0;
+    margin = 1;
+    paper_width = p.Results.PaperWidthRatio * p.Results.PaperSize;
+    paper_height = paper_width * p.Results.PaperWidthHeightRatio;
+    
     set(gcf, 'color', 'w', ...  
              'PaperUnits', 'points', ...
-             'PaperSize', [p.Results.PaperWidth, p.Results.PaperHeight], ...
+             'PaperSize', [paper_width, paper_height], ...
              'PaperPosition', [margin ...
                                margin ...
-                               p.Results.PaperWidth ...
-                               p.Results.PaperHeight]);
+                               paper_width - 2 * margin ...
+                               paper_height - 2 * margin]);
                    
     
     set(gcf, 'PaperPositionMode', 'Manual');

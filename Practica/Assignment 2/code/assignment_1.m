@@ -38,11 +38,12 @@ end
 toc
 
 %% Plot Finite cluster means
+close all
 figure('name', 'Mean and std as function of p');
 color = lbmap(1, 'RedBlue');
 
 errorbar(clusters_stats.means, clusters_stats.stds, ...
-    'o', 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 8, ...
+    'o', 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 4, ...
     'LineWidth', 3, 'Color', color, ...
     'Clipping', 'off');
 
@@ -57,9 +58,11 @@ set(gca, 'XMinorTick', 'on');
 xlabel('p');
 ylabel('Mean cluster size');
 
-high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, 'FontSize', 22, 'PaperWidth', 12, 'PaperHeight', 8, 'Margin', 0.05);
+high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, ...
+    'FontSize', 10, 'PaperSize', 442.65375, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.75);
 
 %% Plot P_infinite
+close all;
 figure('name', 'Inifinite cluster ratio as function of p');
 color = lbmap(1, 'RedBlue');
 
@@ -68,6 +71,12 @@ plot(1 - clusters_stats.finite_ratio, 'LineWidth', 2, 'Color', color);
 xlabel('p');
 ylabel('{P_\infty}');
 
-high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, 'FontSize', 22, 'PaperWidth', 12, 'PaperHeight', 8, 'Margin', 0.05);
+xlim([0, 42]);
+set(gca, 'XTick', (1:10:length(ps)));
+set(gca, 'XTickLabel', ps(1:10:length(ps)));
+set(gca, 'XMinorTick', 'on');
+
+high_quality_plot('Save', '../report/img/assignment_a_p_infinite_ratio_p', 'Ext', 'pdf', 'Dpi', 300, ...
+    'FontSize', 10, 'PaperSize', 216.32687, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.75);
 
 
