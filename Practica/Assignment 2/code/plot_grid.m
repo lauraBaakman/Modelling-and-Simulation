@@ -1,7 +1,7 @@
 
-% NAN: Leeg, mag niet gebruikt
-% 0: Leeg, beschikbaar
-% 1: vol
+% NAN: Leeg, mag niet gebruikt -> grijs
+% 0: Leeg, beschikbaar         -> zwart
+% 1: vol                       -> wit (1!)
 
 function [] = plot_grid(grid, pixelWidth, filename)
     grid = fix_values(grid);
@@ -11,7 +11,7 @@ function [] = plot_grid(grid, pixelWidth, filename)
 end
 
 function [grid] = fix_values(grid)
-    grid(grid == 0) = 0.5;
-    grid(isnan(grid)) = 0;    
+%     grid(grid == 0) = 0.5;
+    grid(isnan(grid)) = 0.5;    
 end
 
