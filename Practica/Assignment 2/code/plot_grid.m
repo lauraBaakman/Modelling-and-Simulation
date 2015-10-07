@@ -1,3 +1,8 @@
+
+% NAN: Leeg, mag niet gebruikt
+% 0: Leeg, beschikbaar
+% 1: vol
+
 function [] = plot_grid(grid, pixelWidth, filename)
     grid = fix_values(grid);
     grid = imresize(grid, [NaN pixelWidth], 'nearest');
@@ -6,11 +11,7 @@ function [] = plot_grid(grid, pixelWidth, filename)
 end
 
 function [grid] = fix_values(grid)
-    grid = swap_zeros_and_ones(grid);
-    grid(isnan(grid)) = 0.5;    
-end
-
-function [grid] = swap_zeros_and_ones(grid)
-   grid = 1 - grid; 
+    grid(grid == 0) = 0.5;
+    grid(isnan(grid)) = 0;    
 end
 
