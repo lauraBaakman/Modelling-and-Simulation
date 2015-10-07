@@ -53,7 +53,8 @@ function [queue] = fix_queue(queue, mask)
 end
 
 function [grid] = fill_color_grid(grid, rows, cols, colours)
-    dimensionOnes = ones(size(colours, 1),1);
+    dimensionOnes = ones(size(rows, 1),1);
+    colours = colours(1:size(rows, 1), :);
     for dim = 1:3
         grid(sub2ind(size(grid),rows,cols, dim * dimensionOnes)) = colours(:, dim);
     end
