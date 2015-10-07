@@ -51,6 +51,11 @@
 \usepackage{csquotes}
 \bibliography{biblio}
 
+% Pseudo code
+\usepackage[algoruled,vlined, linesnumbered, shortend]{algorithm2e}
+\usepackage[export]{adjustbox}
+\usepackage{setspace}
+
 % Temp
 \usepackage{todonotes}
 % \usepackage{showlabels}
@@ -59,9 +64,13 @@
 \newcommand{\normal}[2]{\ensuremath{\mathcal{N}\left(#1,\, #2\right)}}
 \renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
 
-% Lists
-\usepackage{paralist}
+% % Lists
+% \usepackage{paralist}
 
+\crefname{algocf}{algorithm}{algorithms}
+\Crefname{algocf}{Algorithm}{Algorithms}
+\crefname{algocfline}{line}{lines}
+\Crefname{algocfline}{Line}{Lines}
 % Other commands
 \renewcommand{\t}[1]{\texttt{#1}}
 
