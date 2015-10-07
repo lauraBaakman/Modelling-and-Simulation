@@ -23,7 +23,7 @@ function high_quality_plot( varargin )
     p.addOptional('PaperSize', 345, @isnumeric);
     p.addOptional('PaperWidthRatio', 1, @isnumeric);
     p.addOptional('PaperWidthHeightRatio', 1, @isnumeric);
-%     p.addOptional('Margin', 0.1, @isnumeric);
+    p.addOptional('Margin', 1, @isnumeric);
     p.addOptional('FontSize', 10, @isnumeric);
     p.addOptional('Box', 'off');
     p.addOptional('Axis', 'normal');
@@ -76,7 +76,7 @@ function high_quality_plot( varargin )
 %                                p.Results.PaperWidth - 2 * p.Results.Margin ...
 %                                p.Results.PaperHeight - 2 * p.Results.Margin]);
 
-    margin = 1;
+    margin = p.Results.Margin;
     paper_width = p.Results.PaperWidthRatio * p.Results.PaperSize;
     paper_height = paper_width * p.Results.PaperWidthHeightRatio;
     
