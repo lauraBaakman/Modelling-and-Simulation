@@ -1,6 +1,8 @@
 %!TEX root = practicum2.tex
 \Cref{alg:percolation} presents our iterative growth process, the defined function expects three arguments \t{N}, \t{probability} and \t{mask}. Given the size parameter \t{N}, the grid used for the percolation is $(N + 1) \times (N + 1)$, since this causes the grid to have an uneven number of rows and columns its center is always clearly defined as $(N, N)$. The parameter $p \in [0, 1]$ is the probability that a given site in the cluster becomes occupied if it is considered. The \t{mask} is a matrix with $r$ rows and $c$ columns that determines the used connectivity. In general four-connectivity is used. This parameter allows us to empirically determine the influence of the connectivity on the growth of the cluster in \cref{ss:exp:connectivity}.
 
+\todo[inline]{Plaatje percolating, non percolating}
+
 \begin{algorithm}[t]
 	\setstretch{1.2}
 	\SetAlgoShortEnd
