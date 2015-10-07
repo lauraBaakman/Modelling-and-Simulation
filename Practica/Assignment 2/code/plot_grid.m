@@ -21,7 +21,10 @@ function [] = plot_grid(queue, grid, mask, pixelWidth, filename)
     colour_grid = imresize(colour_grid, [NaN pixelWidth], 'nearest');
     
     imagesc(colour_grid);
-    high_quality_plot()
+    axis off;
+    set(gca, 'position', [0 0 1 1]);
+    high_quality_plot('Save', sprintf('../report/img/map_%d_%d', size(grid, 1), size(grid, 2)), 'Ext', 'jpeg', 'Dpi', 300, ...
+    'FontSize', 10, 'PaperSize', 442.65375, 'PaperWidthRatio', 0.24, 'PaperWidthHeightRatio', 1, 'Margin', 0);
 %     imshow(colour_grid, 'InitialMagnification', 'fit');
 %     imwrite(colour_grid, filename);
     
