@@ -51,7 +51,7 @@ errorbar(clusters_stats.means, clusters_stats.stds, ...
 
 ylim([min(clusters_stats.means - clusters_stats.stds), max(clusters_stats.means + clusters_stats.stds)]);
 
-xlim([0, 30]);
+xlim([0, 30.5]);
 set(gca, 'XTick', (2:2:length(ns)));
 set(gca, 'XTickLabel', ns(2:2:length(ns)));
 set(gca, 'XMinorTick', 'on');

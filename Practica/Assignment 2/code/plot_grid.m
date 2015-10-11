@@ -27,7 +27,7 @@ function [] = plot_grid(queue, grid, mask, pixelWidth, filename)
 %     set(cbr,'YTick',0:1/min(10, N):1)
 %     set(cbr, 'YTickLabel', (0:1/min(10, N):1) * N);
     high_quality_plot('Save', sprintf('../report/img/%s', filename), 'Ext', 'jpeg', 'Dpi', 300, ...
-    'FontSize', 10, 'PaperSize', 216.32687, 'PaperWidthRatio', 1, 'PaperWidthHeightRatio', 1, 'Margin', 0);
+    'FontSize', 10, 'PaperSize', 443, 'PaperWidthRatio', 0.3, 'PaperWidthHeightRatio', 1, 'Margin', 0);
 end
 
 function [colors] = generate_colors(grid)

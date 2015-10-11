@@ -20,18 +20,28 @@ mask(3,3) = 0;
 plot_grid(queue, grid, mask, 216, 'assignment_fractal_cluster.jpeg');
 
 % Prepare data for boxcount
-grid(isnan(grid)) = 0;
+boxcount_grid = grid;
+boxcount_grid(isnan(boxcount_grid)) = 0;
 
 % Do boxcounting
-[num_boxes, box_size] = boxcount(grid);
+[num_boxes, box_size] = boxcount(boxcount_grid);
 
-%% Plot 
+%% Plot
 close all force;
 color = lbmap(1);
 
-loglog(box_size, num_boxes, '-o' ,'lineWidth', 2, 'color', color, 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 5);
+loglog(box_size, num_boxes, '-o' ,'lineWidth', 2, 'color', color, 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 3);
 xlabel('{\epsilon}')
 ylabel('{N(\epsilon)}')
 
 high_quality_plot('Save', '../report/img/assignment_fractal_numboxesVSboxsize', 'Ext', 'pdf', 'Dpi', 300, ...
-    'FontSize', 10, 'PaperSize', 216.32687, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 1);
+        'FontSize', 10, 'PaperSize', 443, 'PaperWidthRatio', 0.3, 'PaperWidthHeightRatio', 1);
+
+%% Plot the gradient
+s=-gradient(log(num_boxes))./gradient(log(box_size));
+semilogx(box_size, s, '-' ,'lineWidth', 2, 'color', color);
+ylim([0 2]);
+xlabel('{\epsilon}');
+ylabel('{Local dimension}');
+high_quality_plot('Save', '../report/img/assignment_fractal_gradient', 'Ext', 'pdf', 'Dpi', 300, ...
+    'FontSize', 10, 'PaperSize', 443, 'PaperWidthRatio', 0.3, 'PaperWidthHeightRatio', 1);
