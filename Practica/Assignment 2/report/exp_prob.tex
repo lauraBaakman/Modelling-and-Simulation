@@ -1,4 +1,12 @@
 %!TEX root = practicum2.tex
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{./img/assignment_a_p_infinite_ratio_p.pdf}
+	\caption{Ratio of percolating clusters, $P_\infty$, as a function of $p$. Ratios are calculated over $r_{max} = 200$ runs on a $41 \times 41$ grid.}
+	\label{fig:experiment:prob:p_inf_ratio}
+\end{figure}
+
+
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{./img/assignment_a_mean_std_p.pdf}
@@ -17,11 +25,3 @@ To find an indication of the value of $p_c$ with our model we have let it genera
 \citeauthor{kenzel1997physics} also predicted that the number of percolating clusters relative to the number of finite clusters would grow for $p > p_c$ until $p = 1$, where the only possibility would be a percolating cluster. To observe this effect \cref{fig:experiment:prob:p_inf_ratio} shows $p_\infty$, which is the ratio of the number of percolating clusters to the number of finite clusters. This graph is based on the same data as \cref{fig:experiment:prob:mean_std_clusters}. Based on this graph we would say that $p_c \approx \num{0.4}$. This number is lower than the value for $p_c$ based on \cref{fig:experiment:prob:mean_std_clusters}, this is probably caused by the relatively small grid sizes, which causes us to classify some clusters as percolating, that are actually finite. 
 
 \textcite{stauffer1994introduction} has found $p_c$ to be approximately \num{0.59275} for a square lattice. As stated earlier our lower estimation of $p_c$ is quite likely caused by our small grid. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\columnwidth]{./img/assignment_a_p_infinite_ratio_p.pdf}
-	\caption{Ratio of percolating clusters, $P_\infty$, as a function of $p$. Ratios are calculated over $r_{max} = 200$ runs on a $41 \times 41$ grid.}
-	\label{fig:experiment:prob:p_inf_ratio}
-\end{figure}
-

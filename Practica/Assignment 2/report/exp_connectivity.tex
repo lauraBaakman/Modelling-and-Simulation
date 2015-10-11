@@ -6,14 +6,12 @@ We consider compare two different connectivities, namely four- and eight-connect
 	\begin{subfigure}{0.45\columnwidth}
 		\centering
 		\includegraphics[width=0.8\textwidth]{./img/exp_mask_four.jpg}
-		% \missingfigure{mask}
 		\caption{4-connectivity}
 		\label{fig:exp:connectivity:fourMask}
 	\end{subfigure}
 	\begin{subfigure}{0.45\columnwidth}
 		\centering
 		\includegraphics[width=0.8\textwidth]{./img/exp_mask_eight.jpg}
-		% \missingfigure{masks}
 		\caption{8-connectivity}
 		\label{fig:exp:connectivity:eightMask}
 	\end{subfigure}	
@@ -22,7 +20,7 @@ We consider compare two different connectivities, namely four- and eight-connect
 \end{figure}
 
 % Influence of probability
-The results of performing the same experiment as discussed in \cref{ss:exp:probability} with the eight-connectivity mask, are presented in \cref{fig:experiment:conn:mean_std_clusters} and \ref{fig:experiment:conn:p_inf_ratio}. We have changed
+The results of performing the same experiment as discussed in \cref{ss:exp:probability} with the eight-connectivity mask, are presented in \cref{fig:experiment:conn:mean_std_clusters} and \ref{fig:experiment:conn:p_inf_ratio}. We have changed the range of $p$ to $p = 0.01, 0.02, \dotsc, 0.99$, since using the range used for four-connectivity seemed too small.
 
 It should be noted that for some values of $p$, especially larger values there are no mean cluster sizes, since no finite clusters were found. This indicates that one is much more likely to encounter a percolating cluster with eight-connectivity than with four-connectivity. 
 
@@ -33,7 +31,7 @@ These findings suggest that $p_c$ is much lower when eight-connectivity is used.
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{./img/assignment_d_mean_std_p.pdf}
-	\caption{Mean cluster sizes, represented as points, and standard deviations, indicated by the vertical error bars, as a function of $p = 0.01, 0.02, \dotsc, 0.99$when eight-connectivity is used. The mean and standard deviation were calculated over $200$ runs on a $41 \times 41$ grid.}
+	\caption{Mean cluster sizes, represented as points, and standard deviations, indicated by the vertical error bars, as a function of $p = 0.01, 0.02, \dotsc, 0.99$ when eight-connectivity is used. The mean and standard deviation were calculated over $200$ runs on a $41 \times 41$ grid.}
 	\label{fig:experiment:conn:mean_std_clusters}
 \end{figure*}
 
@@ -44,8 +42,9 @@ These findings suggest that $p_c$ is much lower when eight-connectivity is used.
 	\label{fig:experiment:conn:p_inf_ratio}
 \end{figure}
 
-
 \todo{Influence of size}
+% To determine the influence of the connectivity on the size we have performed the same experiment as used for the four-connectivity. \todo[inline]{Resultaten}
 
 \todo{Influence on fractal dimension}
+% We have determined the fractal dimension of the cluster generated using four connectivity for $N = 80$ and $p =0.7$. We have found that \todo[inline]{Resulaten}
 
