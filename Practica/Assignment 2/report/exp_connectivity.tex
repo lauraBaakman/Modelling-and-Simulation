@@ -1,4 +1,6 @@
 %!TEX root = practicum2.tex
+We consider compare two different connectivities, namely four- and eight-connectivity, \cref{fig:exp:connectivity} visualizes both connectivities. In this section we discuss the same properties we have discussed for the four-connected percolation model.\\
+
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.45\columnwidth}
@@ -18,4 +20,32 @@
 	\caption{Connectivity masks for \subref{fig:exp:connectivity:fourMask} four-connectivity and \subref{fig:exp:connectivity:eightMask} eight-connectivity. The red squares are considered neighbors of the blue center square.}
 	\label{fig:exp:connectivity}
 \end{figure}
-\todo[inline]{How does the connectivity influence the final cluster}
+
+% Influence of probability
+The results of performing the same experiment as discussed in \cref{ss:exp:probability} with the eight-connectivity mask, are presented in \cref{fig:experiment:conn:mean_std_clusters} and \ref{fig:experiment:conn:p_inf_ratio}. We have changed
+
+It should be noted that for some values of $p$, especially larger values there are no mean cluster sizes, since no finite clusters were found. This indicates that one is much more likely to encounter a percolating cluster with eight-connectivity than with four-connectivity. 
+
+This is confirmed by \cref{fig:experiment:conn:p_inf_ratio}, where we find that only for very low values of $p$ $P_\infty$ is zero, and that $P_\infty$ quickly approaches 1. 
+
+These findings suggest that $p_c$ is much lower when eight-connectivity is used. Based on this, admittedly small experiment, one would guess $p_c$ to be approximately $0.2$ when eight-connectivity is used. More research is needed to find the actual value of $p_c$ when eight-connectivity is used.\\
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{./img/assignment_d_mean_std_p.pdf}
+	\caption{Mean cluster sizes, represented as points, and standard deviations, indicated by the vertical error bars, as a function of $p = 0.01, 0.02, \dotsc, 0.99$when eight-connectivity is used. The mean and standard deviation were calculated over $200$ runs on a $41 \times 41$ grid.}
+	\label{fig:experiment:conn:mean_std_clusters}
+\end{figure*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{./img/assignment_d_p_infinite_ratio_p.pdf}
+	\caption{Ratio of percolating clusters, $P_\infty$, as a function of $p = 0.01, 0.02, \dotsc, 0.99$ when eight-connectivity is used. Ratios are calculated over $r_{max} = 200$ runs on a $41 \times 41$ grid.}
+	\label{fig:experiment:conn:p_inf_ratio}
+\end{figure}
+
+
+\todo{Influence of size}
+
+\todo{Influence on fractal dimension}
+
