@@ -11,10 +11,6 @@ p = 0.5;
 max_runs = 200;
 
 mask = ones(3,3);
-mask(1,1) = 0;
-mask(1,3) = 0;
-mask(3,1) = 0;
-mask(3,3) = 0;
 
 num_ns = length(ns);
 clusters_stats = struct('sizes', ns, ...
@@ -59,7 +55,7 @@ set(gca, 'XMinorTick', 'on');
 xlabel('(N + 1)^2');
 ylabel('Q');
 
-high_quality_plot('Save', '../report/img/assignment_b_mean_std_n', 'Ext', 'pdf', 'Dpi', 300, ...
+high_quality_plot('Save', '../report/img/assignment_d_mean_std_n', 'Ext', 'pdf', 'Dpi', 300, ...
     'FontSize', 10, 'PaperSize', 442.65375, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.5);
 
 %% Plot P_infinite
@@ -77,5 +73,5 @@ set(gca, 'XTick', (2:4:length(ns)));
 set(gca, 'XTickLabel', ns(2:4:length(ns)));
 set(gca, 'XMinorTick', 'on');
 
-high_quality_plot('Save', '../report/img/assignment_b_p_infinite_ratio_p', 'Ext', 'pdf', 'Dpi', 300, ...
+high_quality_plot('Save', '../report/img/assignment_d_p_infinite_ratio_p', 'Ext', 'pdf', 'Dpi', 300, ...
     'FontSize', 10, 'PaperSize', 216.32687, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.75);
