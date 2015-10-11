@@ -1,4 +1,5 @@
 clc; clear all; close all force;
+% Influence of p
 
 % stop_conditions niet zo robuust, dus deze ints niet veranderen!
 global stop_reasons
@@ -25,7 +26,7 @@ tic
 for p_idx = 1 : length(ps);
     cluster_sizes = nan(max_runs, 1);
     stop_conditions = nan(max_runs, 1);
-    for run = 1 : max_runs
+    parfor run = 1 : max_runs
         [grid, queue, stop_condition] = percolation(N, mask, ps(p_idx));
         stop_conditions(run) = stop_condition;
         cluster_sizes(run) = nansum(grid(:));
@@ -44,7 +45,7 @@ color = lbmap(1, 'RedBlue');
 
 errorbar(clusters_stats.means, clusters_stats.stds, ...
     'o', 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 4, ...
-    'LineWidth', 3, 'Color', color, ...
+    'LineWidth', 2, 'Color', color, ...
     'Clipping', 'off');
 
 ylim([min(clusters_stats.means - clusters_stats.stds) - 10, max(clusters_stats.means + clusters_stats.stds) + 10]);
@@ -59,7 +60,7 @@ xlabel('p');
 ylabel('Mean cluster size');
 
 high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, ...
-    'FontSize', 10, 'PaperSize', 442.65375, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.75);
+    'FontSize', 10, 'PaperSize', 442.65375, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.5);
 
 %% Plot P_infinite
 close all;
