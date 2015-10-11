@@ -1,4 +1,4 @@
-function cmap = colorRamp(colors, nlevels)
+function cmap = color_ramp(colors, nlevels)
 % colorRamp produces a color ramp for use in figure colormaps
 %   cmap = colorRamp(colors, nlevels)
 %

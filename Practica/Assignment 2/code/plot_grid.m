@@ -37,9 +37,11 @@ end
 
 function [colors] = generate_colors(grid)
     numberOfFilledLocations = sum(grid(:) == 1);
-    start_colour = [11, 91, 180] ./ 256;
-    end_colour = [178, 0, 2] ./ 256;
-    colors = colorRamp([start_colour; end_colour], numberOfFilledLocations);
+    start_and_end_colours = lbmap(2, 'RedBlue');
+    start_and_end_colours = start_and_end_colours(end:-1:1, :);
+%     start_colour = [11, 91, 180] ./ 256;
+%     end_colour = [178, 0, 2] ./ 256;
+    colors = color_ramp(start_and_end_colours , numberOfFilledLocations);
 end
 
 function [queue] = fix_queue(queue, mask)
@@ -61,7 +63,6 @@ function [grid] = fill_color_grid(grid, rows, cols, colours)
 end
 
 function [grid] = fix_values(grid)
-%     grid(grid == 0) = 0.5;
     grid(isnan(grid)) = 0.5;    
 end
 

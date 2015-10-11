@@ -3,6 +3,8 @@ function [ grid, queue, stop_reason] = percolation( N, mask, p )
     %   Detailed explanation goes here
     
     global stop_reasons
+    stop_reasons.PERCOLATING = 0;
+    stop_reasons.FINITE = 1;
     
     check_mask(mask);
     
