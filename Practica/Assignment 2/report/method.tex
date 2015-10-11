@@ -1,5 +1,5 @@
 %!TEX root = practicum2.tex
-\Cref{alg:percolation} presents our iterative growth process, the method \FuncSty{percolation} expects three arguments \t{N}, \t{probability} and \t{mask}. Given the size parameter \t{N}, the grid used for the percolation is $(N + 1) \times (N + 1)$, since this causes the grid to have an uneven number of rows and columns its center is always clearly defined as $(N, N)$. The parameter $p \in [0, 1]$ is the probability that a given site in the cluster becomes occupied. The \t{mask} is a binary matrix with $r$ rows and $c$ columns that determines the used connectivity, until \cref{ss:exp:connectivity} we only consider four-connected clusters, which use the mask presented in \cref{fig:exp:connectivity:fourMask}.
+\Cref{alg:percolation} presents our iterative growth process, the method \FuncSty{percolation} expects three arguments \t{N}, \t{probability} and \t{mask}. Given the size parameter \t{N}, the grid used for the percolation is $(N + 1) \times (N + 1)$, since this causes the grid to have an uneven number of rows and columns its center is always clearly defined as $(N, N)$. The parameter $p \in [0, 1]$ is the probability that a given site in the cluster becomes occupied. The \t{mask} is a binary matrix with $r$ rows and $c$ columns that determines the used connectivity, until \cref{ss:exp:connectivity} we only consider four-connected clusters, which use the mask presented in \cref{fig:exp:connectivity:fourMask}.\\
 
 \begin{figure*}
 	\centering	
@@ -52,7 +52,7 @@
 \end{algorithm}
 
 % Initialisation
-Initially the only site we have to consider is the center site, which is consquently the only site in the queue at the first iteration.
+Initially the only site we have to consider is the center site, which is consequently the only site in the queue at the first iteration.
 
 % Iteratie
 Each iteration we pop the next \t{site} from the queue. We grow this point, using the function \t{grow}. This method considers all neighbors that are connected to \t{site} according to \t{mask}. For each of these neighbors we determine the value $z$, which is randomly sampled from an uniform distribution with the range $[0,1]$. If $z \leq p$ we mark the neighbor site as occupied, otherwise it is marked empty. The method \t{grow} returns the neighbor sites that are occupied, these are added to the queue, as these sites are should also be allowed to grow. 
@@ -60,6 +60,6 @@ Each iteration we pop the next \t{site} from the queue. We grow this point, usin
 % Stop conditions
 The growth of the clusters stops if it cannot grow anymore or if it has reached one of the borders of the grid. In the first case the cluster is finite, which means that all neighbor sites of the cluster, according to the connectivity defined by the \t{mask}, are marked as empty. In \cref{alg:percolation} we test for this condition via the guard of the loop; if the queue is empty there are no more neighbors to consider, consequently the cluster must be finite. 
 
-A percolating cluster is a cluster that has reached the border of the grid, i.e. if there is a occupied site with row or column number $1$ or $2N + 1$. We test for this condition with the method \t{onBorder}. It should be noted that we only check if a site is on the border of the grid after we have already grown the site. 
+A percolating cluster is a cluster that has reached the border of the grid, i.e. if there is a occupied site with row or column number $1$ or $2N + 1$. We test for this condition with the method \t{onBorder}. It should be noted that we only check if a site is on the border of the grid after we have already grown the site. \\
 
 \Cref{fig:method:fin_inf} presents three clusters grown with the algorithm. We can clearly see that the finite clusters are completely surround by a white border, which indicates that these sites are empty. The illustration of the percolation cluster, \cref{fig:method:fin_inf:infinite}, shows that although there are still sites that can grow indicate by the lack of white neighbors, there is one site on the border near the bottom left corner of the image that has stopped the percolation. 
