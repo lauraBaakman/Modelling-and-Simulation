@@ -84,8 +84,7 @@ end
 
 
 function [grid, center, max_sites] = init_grid(N, mask)
-    % Returns grid padded with mask.
-    
+    % Returns grid padded with mask.    
     center = [N + 1, N + 1];
     size = 2 * N + 1;
     max_sites = size^2;
