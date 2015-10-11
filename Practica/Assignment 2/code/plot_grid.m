@@ -17,22 +17,17 @@ function [] = plot_grid(queue, grid, mask, pixelWidth, filename)
     [row_empty_not_available, col_empty_not_available] = find(isnan(grid)); 
     colour_grid = fill_color_grid(colour_grid, row_empty_not_available, col_empty_not_available, ones(size(row_empty_not_available, 1), 3));    
     
-%     figure('name', 'Colour')
     colour_grid = imresize(colour_grid, [NaN pixelWidth], 'nearest');
-    
     imagesc(colour_grid);
     axis off;
     set(gca, 'position', [0 0 1 1]);
+%     N = nansum(grid(:));
+%     colormap(colours);
+%     cbr = colorbar();
+%     set(cbr,'YTick',0:1/min(10, N):1)
+%     set(cbr, 'YTickLabel', (0:1/min(10, N):1) * N);
     high_quality_plot('Save', sprintf('../report/img/%s', filename), 'Ext', 'jpeg', 'Dpi', 300, ...
     'FontSize', 10, 'PaperSize', 216.32687, 'PaperWidthRatio', 1, 'PaperWidthHeightRatio', 1, 'Margin', 0);
-%     imshow(colour_grid, 'InitialMagnification', 'fit');
-%     imwrite(colour_grid, filename);
-    
-%     figure('name', 'Black and White')
-%     grid = fix_values(grid);
-%     grid = imresize(grid, [NaN pixelWidth], 'nearest');
-%     imshow(grid, 'InitialMagnification', 'fit');
-%     imwrite(colour_grid, filename);
 end
 
 function [colors] = generate_colors(grid)
