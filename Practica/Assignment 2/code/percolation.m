@@ -15,10 +15,12 @@ function [ grid, queue, stop_reason] = percolation( N, mask, p )
     queue = init_queue(round(max_sites * p), 2);
     queue = push(queue, site);
     
+    probabilities = rand(size(grid));
+    
     while ~is_empty(queue)
         site = pop(queue);
         
-        [grid, next_sites] = grow(grid, site, mask, p);
+        [grid, next_sites] = grow(grid, site, mask, p, probabilities);
         
         if on_border(site, grid, mask)
             stop_reason = stop_reasons.PERCOLATING;
