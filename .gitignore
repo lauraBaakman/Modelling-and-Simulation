@@ -5,7 +5,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -110,3 +111,5 @@ slprj/
 *.sublime-workspace
 *blx.bib
 *run.xml
+
+report/*.pdf
