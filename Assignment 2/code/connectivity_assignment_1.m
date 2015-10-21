@@ -7,7 +7,7 @@ stop_reasons.PERCOLATING = 0;
 stop_reasons.FINITE = 1;
     
 N = 20;
-ps = (0.01:0.01:0.99);
+ps = (0.2:0.01:0.6);
 max_runs = 200;
 
 mask = ones(3,3);
@@ -51,7 +51,7 @@ errorbar(clusters_stats.means, clusters_stats.stds, ...
 ylim([min(clusters_stats.means - clusters_stats.stds) - 10, max(clusters_stats.means + clusters_stats.stds) + 10]);
 % set(gca, 'YTick', linspace(0, N * 2 + 1, (N * 2 + 1) / length(ps)));
 
-xlim([0, 72]);
+xlim([0, 41]);
 set(gca, 'XTick', (1:10:length(ps)));
 set(gca, 'XTickLabel', ps(1:10:length(ps)));
 set(gca, 'XMinorTick', 'on');
@@ -69,12 +69,15 @@ color = lbmap(1, 'RedBlue');
 
 plot(1 - clusters_stats.finite_ratio, 'LineWidth', 2, 'Color', color);
 
+% xlim([0.01 0.91])
+ylim([-0.04 1.04])
+
 xlabel('p');
 ylabel('{P_\infty}');
 
-% xlim([0, 42]);
-set(gca, 'XTick', (1:20:length(ps)));
-set(gca, 'XTickLabel', ps(1:20:length(ps)));
+xlim([0, 41]);
+set(gca, 'XTick', (1:10:length(ps)));
+set(gca, 'XTickLabel', ps(1:10:length(ps)));
 set(gca, 'XMinorTick', 'on');
 
 high_quality_plot('Save', '../report/img/assignment_d_p_infinite_ratio_p', 'Dpi', 300, ...
