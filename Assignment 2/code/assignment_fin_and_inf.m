@@ -24,7 +24,7 @@ for N = Ns
         seed = seeds(i);
             rng(seed);
             [grid, queue, ~] = percolation(N, mask, p);
-            plot_grid(queue, grid, mask, size(grid, 2), sprintf('fancy_cluster_N%d_p%d_rng_%d.jpg', N, 10*p, seed));
+            plot_grid(queue, grid, mask, size(grid, 2), sprintf('fancy_cluster_N%d_p%d_rng_%d', N, 10*p, seed));
     end
 end
 

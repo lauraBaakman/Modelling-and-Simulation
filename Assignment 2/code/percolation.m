@@ -26,7 +26,7 @@ function [ grid, queue, stop_reason] = percolation( N, mask, p, seedValue)
         
         [grid, next_sites] = grow(grid, site, mask, p, probabilities);
         
-        if on_border(site, grid, mask)
+        if on_border(next_sites, grid, mask)
             stop_reason = stop_reasons.PERCOLATING;
             % fprintf('Terminating, since percolating.');
             break;
@@ -70,7 +70,7 @@ function [queue] = push(queue, elements)
     queue_end = queue_end + size(elements, 1);
 end
 
-function [b] = on_border(site, grid, mask)
+function [b] = on_border(sites, grid, mask)
     [mask_width, mask_height] = mask_size(mask);
     
     left_border = 1 + mask_width;
@@ -79,8 +79,8 @@ function [b] = on_border(site, grid, mask)
     top_border = 1 + mask_height;
     bottom_border = size(grid, 1) - mask_height;
     
-    b = (site(1) == top_border || site(1) == bottom_border) || ...
-        (site(2) == left_border || site(2) == right_border);
+    b = (sites(:, 1) == top_border | sites(:, 1) == bottom_border) | ...
+        (sites(:, 2) == left_border | sites(:, 2) == right_border);
 end
 
 function [b_stop] = stop(site)
