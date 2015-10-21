@@ -1,10 +1,14 @@
-function [ grid, queue, stop_reason] = percolation( N, mask, p )
+function [ grid, queue, stop_reason] = percolation( N, mask, p, seedValue)
     %PERCOLATION Summary of this function goes here
     %   Detailed explanation goes here
     
     global stop_reasons
     stop_reasons.PERCOLATING = 0;
     stop_reasons.FINITE = 1;
+    
+    if nargin == 4
+       rng(seedValue); 
+    end
     
     check_mask(mask);
     
