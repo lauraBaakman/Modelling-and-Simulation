@@ -59,7 +59,7 @@ set(gca, 'XMinorTick', 'on');
 xlabel('p');
 ylabel('Mean cluster size');
 
-high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Ext', 'pdf', 'Dpi', 300, ...
+high_quality_plot('Save', '../report/img/assignment_a_mean_std_p', 'Dpi', 300, ...
     'FontSize', 10, 'PaperSize', 442.65375, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.5);
 
 %% Plot P_infinite
@@ -77,7 +77,7 @@ set(gca, 'XTick', (1:10:length(ps)));
 set(gca, 'XTickLabel', ps(1:10:length(ps)));
 set(gca, 'XMinorTick', 'on');
 
-high_quality_plot('Save', '../report/img/assignment_a_p_infinite_ratio_p', 'Ext', 'pdf', 'Dpi', 300, ...
+high_quality_plot('Save', '../report/img/assignment_a_p_infinite_ratio_p', 'Dpi', 300, ...
     'FontSize', 10, 'PaperSize', 216.32687, 'PaperWidthRatio', 1.0, 'PaperWidthHeightRatio', 0.75);
 
 
