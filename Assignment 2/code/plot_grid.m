@@ -3,7 +3,11 @@
 % 0: Leeg, beschikbaar         -> zwart
 % 1: vol                       -> wit (1!)
 
-function [] = plot_grid(queue, grid, mask, pixelWidth, filename)
+function [] = plot_grid(queue, grid, mask, pixelWidth, filename, range)
+    if nargin == 5
+       range = 1:size(grid, 1);
+    end
+
     queue = fix_queue(queue, mask);
 
     colours = generate_colors(grid);
@@ -16,6 +20,9 @@ function [] = plot_grid(queue, grid, mask, pixelWidth, filename)
     % Set unavailble not used squares to black
     [row_empty_not_available, col_empty_not_available] = find(isnan(grid)); 
     colour_grid = fill_color_grid(colour_grid, row_empty_not_available, col_empty_not_available, ones(size(row_empty_not_available, 1), 3));    
+    
+    % Take a subet of the grid
+    colour_grid = colour_grid(range, range, :);
     
     colour_grid = imresize(colour_grid, [NaN pixelWidth], 'nearest');
     imagesc(colour_grid);
