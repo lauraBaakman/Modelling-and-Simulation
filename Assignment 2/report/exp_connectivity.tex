@@ -22,9 +22,7 @@ We consider two different connectivities, namely four- and eight-connectivity, s
 % Influence of probability
 The results of performing the same experiment as discussed in \cref{ss:exp:probability} with the eight-connectivity mask, are presented in \cref{fig:experiment:conn:mean_std_clusters} and \ref{fig:experiment:conn:p_inf_ratio}. We have changed the range of $p$ to $p = 0.01, 0.02, \dotsc, 0.99$, since using the range used for four-connectivity seemed too small.
 
-\todo[inline]{p kleiner dan 0.30 en groter dan 0.7 zijn niet echt interessant. Misschien dat p wel iets naar beneden kan omdat je nu meer tegelijk zou kunneng groeien, maar meer dan 0.7 is saai waarschijnlijk.}
-
-It should be noted that for some values of $p$, especially larger values there are no mean cluster sizes, since no finite clusters were found. This indicates that one is much more likely to encounter a percolating cluster with eight-connectivity than with four-connectivity. 
+It should be noted that for some values of $p$, especially larger values there are no mean cluster sizes, since no finite clusters were found. This indicates that one is much more likely to encounter a percolating cluster with eight-connectivity than with four-connectivity. \todo[inline]{Explain why this makes sense} \todo[inline]{Hoe zorgt dit ervoor dat de mean size van een cluster kleiner is?}
 
 This is confirmed by \cref{fig:experiment:conn:p_inf_ratio}, where we find that only for very low values of $p$ $P_\infty$ is zero, and that $P_\infty$ quickly approaches 1. 
 
@@ -33,7 +31,7 @@ These findings suggest that $p_c$ is much lower when eight-connectivity is used.
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{./img/assignment_d_mean_std_p.pdf}
-	\caption{Mean cluster sizes, represented as points, and standard deviations, indicated by the vertical error bars, as a function of $p = 0.01, 0.02, \dotsc, 0.99$ when eight-connectivity is used. The mean and standard deviation were calculated over $200$ runs on a $41 \times 41$ grid.}
+	\caption{Mean cluster sizes, represented as points, and standard deviations, indicated by the vertical error bars, as a function of $p = 0.2, 0,21, \dotsc, 0.99$ when eight-connectivity is used. The mean and standard deviation were calculated over $200$ runs on a $41 \times 41$ grid.}
 	\label{fig:experiment:conn:mean_std_clusters}
 \end{figure*}
 

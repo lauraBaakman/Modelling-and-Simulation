@@ -43,7 +43,7 @@
 	\While{not \FuncSty{isEmpty($queue$)}}{
 		$site$ = \FuncSty{pop($queue$)}\; 
 		$sites$ = \FuncSty{grow}($grid$, $site$, $mask$, $p$)\; 
-		\If{onBorder(site)}{
+		\If{anyOnBorder(sites)}{
 			\KwSty{break}
 		} 
 		\FuncSty{push($queue$, $sites$)}\; 
@@ -63,4 +63,7 @@ The growth of the clusters stops when the queue is empty and it thus cannot grow
 A percolating cluster is a cluster that has reached the border of the grid, i.e. if there is a occupied site with row or column number $1$ or $2N + 1$. We test for this condition with the method \t{onBorder}. It should be noted that we only check if a site is on the border of the grid after we have already grown the site.\\
 % Which has a consequence...
 
-\Cref{fig:method:fin_inf} presents three clusters grown with the algorithm. We can clearly see that the finite clusters are completely surround by a white border, which indicates that these sites are empty and processed. The illustration of the percolation cluster, \cref{fig:method:fin_inf:infinite}, shows that although there are still sites that can grow indicate by the lack of white neighbors, there is one site on the border near the bottom left corner of the image that has stopped the percolation. 
+\Cref{fig:method:fin_inf} presents three clusters grown with \cref{alg:percolation}. We can clearly see that the finite clusters are completely surrounded by a white border, which indicates that these sites are empty and processed. \Cref{fig:method:fin_inf:infinite} shows a percolating cluster, which has stopped growing due to a site in the lower left corner.
+\todo[inline]{Anders formuleren!!}
+Another indication of the percolating nature of the cluster is the fact that there are occupied sites that can still grow, as indicated by their empty neighbours.
+
