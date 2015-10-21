@@ -35,7 +35,9 @@
 \titleformat{\subsubsection}[block]{\scshape}{\thesubsubsection.}{1em}{}
 
 %Wiskunde
-\usepackage[scientific-notation=true, round-mode=figures, round-precision=4, exponent-base=e, exponent-product={}]{siunitx}
+% \usepackage[scientific-notation=true, round-mode=figures, round-precision=4, exponent-base=e, exponent-product={}]{siunitx}
+\usepackage[low=1e-1,high=1e3]{threshold}
+\sisetup{round-mode=figures, round-precision=4, exponent-base=e, exponent-product={}}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amsfonts}
