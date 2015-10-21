@@ -1,0 +1,9 @@
+%!TEX root = practicum1.tex
+This paper discusses the Chirikov map. Since we are only interested in the non-integer part we use the following modified map:
+\begin{subequations}\label{eq:chirikov}
+	\begin{align}
+		\label{eq:chirikov:p} p_{n + 1} &= p_n + \frac{K \sin \left(  2 \pi x_n \right)}{2 \pi} \mod 1 \\
+		\label{eq:chirikov:x} x_{n + 1} &= x_n + p_{n + 1} \mod 1,
+	\end{align}
+\end{subequations}	
+where the non-linearity parameter $K \in \mathbb{R}$. The modulo operator ensures that $x_n, p_n \in \left[ 0, 1 \right]$. In this paper we discuss the influence of the different parameters on the orbits in the map.
