@@ -11,9 +11,9 @@ where $c$ and $s$ are constants and $M_\varepsilon(\rho)$ are measurements at di
 	% \end{equation}
 One way to get the measurements $M_\varepsilon$ is to use box-counting. When box-counting is used the different scales mentioned in \citeauthor{falconer2004fractal}'s definition are the sizes of the boxes. \todo[inline]{Boxcounting uitleggen}
 
-We have used the function \t{box-count} by \textcite{boxCounting} to determine the fractal dimension of Percolation clusters. This method uses box sizes that are power of two. Consequently $\varepsilon = 1, 2, 3, \dotsc 2^q$ where $q$ is the smallest integer such that $q \leq (2N + 1)$. 
+We have used the function \t{box-count} by \textcite{boxCounting} to determine the fractal dimension of Percolation clusters. This method uses box sizes that are power of two. Consequently $\varepsilon = 1, 2, 4, \dotsc 2^q$ where $q$ is the smallest integer such that $q \leq (2N + 1)$. 
 
-We have used the box-counting algorithm on a cluster generated with $N = 80$, $p = 0.7$, the used cluster is shown in \cref{fig:exp_fractal:cluster}. \Cref{fig:exp_fractal:fractalDimension} presents the number of boxes as a function of the size of the boxes. The box-counting dimension can be read from \cref{fig:exp_fractal:fractalDimensionGradient} to be \num{1.879}, which neatly approximates the dimension \num{1.896} mentioned by \textcite{stauffer1994introduction}. The small difference between these numbers can be explained by the relatively small size of our cluster. 
+We have used the box-counting algorithm on a cluster generated with $N = 80$, $p = 0.7$, the used cluster is shown in \cref{fig:exp_fractal:cluster}. \Cref{fig:exp_fractal:fractalDimension} presents the number of boxes as a function of the size of the boxes. \todo[inline]{Uileggen hoe we dimension uit dit figuur halen.} The box-counting dimension can be read from \cref{fig:exp_fractal:fractalDimensionGradient} to be \num{1.879}, which neatly approximates the dimension \num{1.896} mentioned by \textcite{stauffer1994introduction}. The small difference between these numbers can be explained by the relatively small size of our cluster. 
 
 \begin{figure*}
 	\centering
