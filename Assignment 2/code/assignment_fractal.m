@@ -1,6 +1,8 @@
 clc; clear all; close all force;
 
-N = 80;
+% rng(38);
+
+N = 200;
 ps = 0.3:0.1:0.7;
 number_of_runs = 20;
 
@@ -15,8 +17,8 @@ stop_reasons.FINITE = 1;
 
 mean_fractal_dimension = nan(size(ps, 1), 1);
 
-number_of_runs = 1;
-ps = 0.7;
+number_of_runs = 20;
+ps = 0.3:0.1:0.6;
 
 p_idx = 1;
 for p = ps
@@ -28,13 +30,13 @@ for p = ps
             [grid, queue, stop_condition] = percolation(N, mask, p);
             
             % If the cluster is finite             
-            if(stop_condition == 1)
+            if(stop_condition == stop_reasons.FINITE)
                 % Prepare data for boxcount
                 boxcount_grid = grid;
                 boxcount_grid(isnan(boxcount_grid)) = 0;
                 
                 % Do boxcounting
-                [~, ~, fractal_dimensions_run(run)] = boxcount(boxcount_grid);
+                [~, ~, fractal_dimensions_run(run), ~, ~] = fractalanalysis(boxcount_grid);
                 break;
             end
         end
@@ -56,5 +58,5 @@ xlabel('{p}')
 ylabel('{\rho}')
 
 
-high_quality_plot('Save', '../report/img/assignment_fractal_rhoVSp.png', 'Dpi', 300, ...
+hq_plot('Save', './../report/img/assignment_fractal_rhoVSp.png', 'Dpi', 300, ...
         'FontSize', 10, 'PaperSize', 216, 'PaperWidthRatio', 1, 'PaperWidthHeightRatio', 1);

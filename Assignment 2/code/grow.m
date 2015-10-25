@@ -12,8 +12,7 @@ function [ grid, sites ] = grow( grid, site, mask, p, probabilities)
     
     sub_grid = grid(top_row:bottom_row, left_col:right_col);
     sub_prob = probabilities(top_row:bottom_row, left_col:right_col);
-    
-    
+      
     prob_mask = sub_prob .* mask;
     
     sub_grid = sub_grid + prob_mask;
