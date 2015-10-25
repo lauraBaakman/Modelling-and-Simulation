@@ -31,17 +31,17 @@ close all force;
 color = lbmap(1);
 
 loglog(box_size, num_boxes, '-o' ,'lineWidth', 2, 'color', color, 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 3);
-xlabel('{\epsilon}')
-ylabel('{N(\epsilon)}')
+xlabel('{log[\epsilon]}')
+ylabel('{log[N(\epsilon)]}')
 
-high_quality_plot('Save', '../report/img/assignment_fractal_numboxesVSboxsize', 'Dpi', 300, ...
+high_quality_plot2('Save', '../report/img/assignment_fractal_numboxesVSboxsize', 'Dpi', 300, ...
         'FontSize', 10, 'PaperSize', 443, 'PaperWidthRatio', 0.3, 'PaperWidthHeightRatio', 1);
 
 %% Plot the gradient
 s=-gradient(log(num_boxes))./gradient(log(box_size));
 semilogx(box_size, s, '-' ,'lineWidth', 2, 'color', color);
 ylim([0 2]);
-xlabel('{\epsilon}');
+xlabel('{log[\epsilon}]');
 ylabel('{Local dimension}');
-high_quality_plot('Save', '../report/img/assignment_fractal_gradient', 'Dpi', 300, ...
+high_quality_plot2('Save', '../report/img/assignment_fractal_gradient', 'Dpi', 300, ...
     'FontSize', 10, 'PaperSize', 443, 'PaperWidthRatio', 0.3, 'PaperWidthHeightRatio', 1);
