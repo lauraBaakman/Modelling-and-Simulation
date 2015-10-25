@@ -1,29 +1,23 @@
 %!TEX root = practicum2.tex
-\Cref{alg:percolation} presents our iterative growth process, the method \FuncSty{percolation} expects three arguments \t{mask}, \t{probability} and . Given the size parameter \t{N}, the grid used for the percolation is $(2N + 1) \times (2N + 1)$, this causes the grid to have an uneven number of rows and columns. Consequently the grids center is always clearly defined as $(N + 1, N + 1)$. The parameter $p \in [0, 1]$ is the probability that a given site in the cluster becomes occupied. The \t{mask} is a binary matrix with $r$ rows and $c$ columns that determines the used connectivity. Until \cref{ss:exp:connectivity} we only consider four-connected clusters for which the mask presented in \cref{fig:exp:connectivity:fourMask} is used.\\
+\Cref{alg:percolation} presents our iterative growth process, the method \FuncSty{percolation} expects three arguments \t{mask}, \t{probability} and . Given the size parameter \t{N}, the grid used for the percolation is $(2N + 1) \times (2N + 1)$, this causes the grid to have an uneven number of rows and columns. Consequently the grids center is always clearly defined as $(N + 1, N + 1)$. The parameter $p \in [0, 1]$ is the probability that a given site in the cluster becomes occupied. The \t{mask} is a binary matrix with $r$ rows and $c$ columns that determines the used connectivity. Until \cref{ss:exp:connectivity} we only consider four-connected clusters, for which the mask presented in \cref{fig:exp:connectivity:fourMask} is used.\\
 
-\begin{figure*}
-	\centering	
-	\begin{subfigure}{0.27\textwidth}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\columnwidth}
 		\centering
-		\includegraphics[width=0.9\textwidth]{./img/fancy_cluster_N20_p3_rng_8}
-		\caption{$N = 20$ and $p = 0.3$}
-		\label{fig:method:fin_inf:finiteSmall}
+		\includegraphics[width=0.8\textwidth]{./img/exp_mask_four.jpg}
+		\caption{4-connectivity}
+		\label{fig:exp:connectivity:fourMask}
 	\end{subfigure}
-	\begin{subfigure}{0.27\textwidth}
+	\begin{subfigure}{0.45\columnwidth}
 		\centering
-		\includegraphics[width=0.9\textwidth]{./img/fancy_cluster_N20_p5_rng_8}
-		\caption{$N = 20$ and $p = 0.5$}
-		\label{fig:method:fin_inf:finiteLarge}
+		\includegraphics[width=0.8\textwidth]{./img/exp_mask_eight.jpg}
+		\caption{8-connectivity}
+		\label{fig:exp:connectivity:eightMask}
 	\end{subfigure}	
-	\begin{subfigure}{0.27\textwidth}
-		\centering
-		\includegraphics[width=0.9\textwidth]{./img/fancy_cluster_N20_p6_rng_5}
-		\caption{$N = 20$ and $p = 0.6$}
-		\label{fig:method:fin_inf:infinite}
-	\end{subfigure}		
-	\caption{Examples of \subref{fig:method:fin_inf:finiteSmall} a small finite cluster, \subref{fig:method:fin_inf:finiteLarge} a larger finite cluster and \subref{fig:method:fin_inf:infinite} a percolating cluster using four-connected neighbours. The colours of the elements in the cluster indicate when that point was added to the cluster, the `colder' the color the earlier in the percolation it was added to the cluster. White cells are empty and gray cells are undetermined. }
-	\label{fig:method:fin_inf}
-\end{figure*}
+	\caption{Connectivity masks for \subref{fig:exp:connectivity:fourMask} four-connectivity and \subref{fig:exp:connectivity:eightMask} eight-connectivity. The red squares are considered neighbors of the blue center square.}
+	\label{fig:exp:connectivity}
+\end{figure}
 
 \begin{algorithm}[t]
 	\setstretch{1.2}
@@ -63,6 +57,31 @@ Each iteration we pop the next \t{site} from the queue. We grow this point, usin
 
 % Stop conditions
 The growth of the clusters stops when the queue is empty and it thus cannot grow anymore or if it has reached one of the borders of the grid. In the first case the cluster is finite, which means that all neighboring sites of the cluster, according to the connectivity defined by the \t{mask}, are marked as empty. In \cref{alg:percolation} we test for this condition via the guard of the loop; if the queue is empty there are no more neighbors to consider, consequently the cluster must be finite. 
+
+\begin{figure*}
+	\centering	
+	\begin{subfigure}{0.27\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{./img/fancy_cluster_N20_p3_rng_8}
+		\caption{$N = 20$ and $p = 0.3$}
+		\label{fig:method:fin_inf:finiteSmall}
+	\end{subfigure}
+	\begin{subfigure}{0.27\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{./img/fancy_cluster_N20_p5_rng_8}
+		\caption{$N = 20$ and $p = 0.5$}
+		\label{fig:method:fin_inf:finiteLarge}
+	\end{subfigure}	
+	\begin{subfigure}{0.27\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{./img/fancy_cluster_N20_p6_rng_5}
+		\caption{$N = 20$ and $p = 0.6$}
+		\label{fig:method:fin_inf:infinite}
+	\end{subfigure}		
+	\caption{Examples of \subref{fig:method:fin_inf:finiteSmall} a small finite cluster, \subref{fig:method:fin_inf:finiteLarge} a larger finite cluster and \subref{fig:method:fin_inf:infinite} a percolating cluster using four-connected neighbours. The colours of the elements in the cluster indicate when that point was added to the cluster, the `colder' the color the earlier in the percolation it was added to the cluster. White cells are empty and gray cells are undetermined. }
+	\label{fig:method:fin_inf}
+\end{figure*}
+
 
 A percolating cluster is a cluster that has reached the border of the grid, i.e. if there is an occupied site with row or column number $1$ or $2N + 1$. We test for this condition with the method \t{anyOnBorder} which is called before adding newly occupied sites to the queue.\\
 % Which has a consequence...

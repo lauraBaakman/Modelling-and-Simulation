@@ -73,8 +73,17 @@
 \newcommand{\normal}[2]{\ensuremath{\mathcal{N}\left(#1,\, #2\right)}}
 \renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
 
-% % Lists
-% \usepackage{paralist}
+% Float parameters
+\setcounter{topnumber}{8}
+\setcounter{bottomnumber}{8}
+\setcounter{totalnumber}{8}
+
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.8}
+
+\setlength{\belowcaptionskip}{-10pt}
 
 \crefname{algocf}{algorithm}{algorithms}
 \Crefname{algocf}{Algorithm}{Algorithms}

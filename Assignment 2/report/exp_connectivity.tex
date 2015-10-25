@@ -1,7 +1,5 @@
 %!TEX root = practicum2.tex
-We consider two different connectivities, namely four- and eight-connectivity, which are illustrated in \cref{fig:exp:connectivity}. In this section we discuss the influence of the 8-connectivity on the size of the cluster.
-
-\begin{figure}
+\begin{figure}[b!]
 	\centering
 	\begin{subfigure}{0.45\columnwidth}
 		\centering
@@ -19,34 +17,19 @@ We consider two different connectivities, namely four- and eight-connectivity, w
 	\label{fig:exp:connectivityResults}
 \end{figure}
 
-\Cref{fig:exp:connectivityResults} shows two clusters which have been grown using the same probabilities but different connectivities. We see that in this case the 8-connected cluster is much larger than the 4-connected cluster. Although a different seed for the algorithms may result in different clusters in general one would expect the 8-connected cluster to grow larger than the 4-connected version. Since the expected number of sites that are occupied in each grow step when 8-connectivity is used is twice as high as the expected number of occupied sites with 4-connectivity. 
+We consider two different connectivities, namely four- and eight-connectivity, which are illustrated in \cref{fig:exp:connectivity}. In this section we discuss the influence of the 8-connectivity on the size of the cluster.
 
-\begin{figure}
-	\centering
-	\begin{subfigure}{0.45\columnwidth}
-		\centering
-		\includegraphics[width=0.8\textwidth]{./img/exp_mask_four.jpg}
-		\caption{4-connectivity}
-		\label{fig:exp:connectivity:fourMask}
-	\end{subfigure}
-	\begin{subfigure}{0.45\columnwidth}
-		\centering
-		\includegraphics[width=0.8\textwidth]{./img/exp_mask_eight.jpg}
-		\caption{8-connectivity}
-		\label{fig:exp:connectivity:eightMask}
-	\end{subfigure}	
-	\caption{Connectivity masks for \subref{fig:exp:connectivity:fourMask} four-connectivity and \subref{fig:exp:connectivity:eightMask} eight-connectivity. The red squares are considered neighbors of the blue center square.}
-	\label{fig:exp:connectivity}
-\end{figure}
+\Cref{fig:exp:connectivityResults} shows two clusters which have been grown using the same probabilities but different connectivities. We see that in this case the 8-connected cluster is much larger than the 4-connected cluster. Although a different seed for the algorithms may result in different clusters in general one would expect the 8-connected cluster to grow larger than the 4-connected version. Since the expected number of sites that are occupied in each grow step when 8-connectivity is used is twice as high as the expected number of occupied sites with 4-connectivity. 
 
 % Influence of probability
 The results of performing the same experiment as discussed in \cref{ss:exp:probability} with the eight-connectivity mask, are presented in \cref{fig:experiment:conn:mean_std_clusters} and \ref{fig:experiment:conn:p_inf_ratio}. We have changed the range of $p$ to $p = 0.2, 0.21, \dotsc, 0.6$, since even for $p = 0.3$ $P_\infty$ was close to zero. 
 
-It should be noted that for some values of $p$, especially larger values there are no mean cluster sizes, since no finite clusters were found. This indicates that one is much more likely to encounter a percolating cluster with eight-connectivity than with four-connectivity for the same value of $p$. Which fits with our ealier observation that the expected number of newly occupied sites with eight-connectivity is twice as high when compared with a four-connected cluster.
-
-That for higher values of $p$ a percolating cluster is more likely than a finite cluster is confirmed by \cref{fig:experiment:conn:p_inf_ratio}, where we find that only for very low values of $p$ $P_\infty$ is zero, and that $P_\infty$ quickly approaches 1. 
-
-These findings suggest that $p_c$ is much lower when eight-connectivity is used. Based on this, admittedly small experiment, one would guess $p_c$ to be approximately $0.2$ when eight-connectivity is used. More research is needed to find the actual value of $p_c$ for eight-connected clusters.\\
+\begin{figure}[b!]
+	\centering
+	\includegraphics[width=\columnwidth]{./img/assignment_d_p_infinite_ratio_p.pdf}
+	\caption{Ratio of percolating clusters, $P_\infty$, as a function of $p = 0.2, 0.21, \dotsc, 0.6$ when eight-connectivity is used. Ratios are calculated over $r_{max} = 200$ runs on a $41 \times 41$ grid.}
+	\label{fig:experiment:conn:p_inf_ratio}
+\end{figure}
 
 \begin{figure*}
 	\centering
@@ -55,12 +38,15 @@ These findings suggest that $p_c$ is much lower when eight-connectivity is used.
 	\label{fig:experiment:conn:mean_std_clusters}
 \end{figure*}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\columnwidth]{./img/assignment_d_p_infinite_ratio_p.pdf}
-	\caption{Ratio of percolating clusters, $P_\infty$, as a function of $p = 0.2, 0.21, \dotsc, 0.6$ when eight-connectivity is used. Ratios are calculated over $r_{max} = 200$ runs on a $41 \times 41$ grid.}
-	\label{fig:experiment:conn:p_inf_ratio}
-\end{figure}
+It should be noted that for some values of $p$, especially larger values there are no mean cluster sizes, since no finite clusters were found. This indicates that one is much more likely to encounter a percolating cluster with eight-connectivity than with four-connectivity for the same value of $p$. Which fits with our ealier observation that the expected number of newly occupied sites with eight-connectivity is twice as high when compared with a four-connected cluster.
+
+That for higher values of $p$ a percolating cluster is more likely than a finite cluster is confirmed by \cref{fig:experiment:conn:p_inf_ratio}, where we find that only for very low values of $p$ $P_\infty$ is zero, and that $P_\infty$ quickly approaches 1. 
+
+These findings suggest that $p_c$ is much lower when eight-connectivity is used. Based on this, admittedly small experiment, one would guess $p_c$ to be approximately $0.2$ when eight-connectivity is used. More research is needed to find the actual value of $p_c$ for eight-connected clusters.\\
+
+
+
+
 
 % \todo{Influence of size}
 % % To determine the influence of the connectivity on the size we have performed the same experiment as used for the four-connectivity. \todo[inline]{Resultaten}
