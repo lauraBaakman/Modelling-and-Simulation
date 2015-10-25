@@ -1,11 +1,8 @@
 clc; clear all; close all force;
 
 N = 80;
-p = 0.7;
-
-% For seed in 1..100 38 gives the largest finite cluster for N = 100 and p
-% = 0.7
-rng(38)
+ps = 0.3:0.1:0.7;
+number_of_runs = 20;
 
 mask = ones(3,3);
 mask(1,1) = 0;
@@ -13,35 +10,51 @@ mask(1,3) = 0;
 mask(3,1) = 0;
 mask(3,3) = 0;
 
-% Generate finite cluster
-[grid, queue, stop_condition] = percolation(N, mask, p);
+stop_reasons.PERCOLATING = 0;
+stop_reasons.FINITE = 1;
 
-%% Plot cluster before we edit the grid
-plot_grid(queue, grid, mask, 216, 'assignment_fractal_cluster');
+mean_fractal_dimension = nan(size(ps, 1), 1);
 
-% Prepare data for boxcount
-boxcount_grid = grid;
-boxcount_grid(isnan(boxcount_grid)) = 0;
+number_of_runs = 1;
+ps = 0.7;
 
-% Do boxcounting
-[num_boxes, box_size] = boxcount(boxcount_grid);
+p_idx = 1;
+for p = ps
+    fractal_dimensions_run = nan(10, 1);
+    p_idx
+    for run = 1:number_of_runs
+        while true
+            % Generate cluster
+            [grid, queue, stop_condition] = percolation(N, mask, p);
+            
+            % If the cluster is finite             
+            if(stop_condition == 1)
+                % Prepare data for boxcount
+                boxcount_grid = grid;
+                boxcount_grid(isnan(boxcount_grid)) = 0;
+                
+                % Do boxcounting
+                [~, ~, fractal_dimensions_run(run)] = boxcount(boxcount_grid);
+                break;
+            end
+        end
+    end
+    mean_fractal_dimension(p_idx) = nanmean(fractal_dimensions_run);
+    p_idx = p_idx + 1;
+end
 
 %% Plot
-close all force;
-color = lbmap(1);
+color = lbmap(1, 'RedBlue');
 
-loglog(box_size, num_boxes, '-o' ,'lineWidth', 2, 'color', color, 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 3);
-xlabel('{\epsilon}')
-ylabel('{N(\epsilon)}')
+figure('name', 'Box counting dimension as function of p');
 
-high_quality_plot('Save', '../report/img/assignment_fractal_numboxesVSboxsize', 'Dpi', 300, ...
-        'FontSize', 10, 'PaperSize', 443, 'PaperWidthRatio', 0.3, 'PaperWidthHeightRatio', 1);
+plot(ps, mean_fractal_dimension, ...
+       'o-', 'MarkerFaceColor', color, 'MarkerEdgeColor', color, 'MarkerSize', 4,...
+       'LineWidth', 2, 'Color', color, ...
+       'Clipping', 'off');       
+xlabel('{p}')
+ylabel('{\rho}')
 
-%% Plot the gradient
-s=-gradient(log(num_boxes))./gradient(log(box_size));
-semilogx(box_size, s, '-' ,'lineWidth', 2, 'color', color);
-ylim([0 2]);
-xlabel('{\epsilon}');
-ylabel('{Local dimension}');
-high_quality_plot('Save', '../report/img/assignment_fractal_gradient', 'Dpi', 300, ...
-    'FontSize', 10, 'PaperSize', 443, 'PaperWidthRatio', 0.3, 'PaperWidthHeightRatio', 1);
+
+high_quality_plot('Save', '../report/img/assignment_fractal_rhoVSp.png', 'Dpi', 300, ...
+        'FontSize', 10, 'PaperSize', 216, 'PaperWidthRatio', 1, 'PaperWidthHeightRatio', 1);

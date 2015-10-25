@@ -1,8 +1,8 @@
-function [n,r] = boxcount(c,varargin)
+function [n,r, fractalDimension] = boxcount(c,varargin)
 %BOXCOUNT  Box-Counting of a D-dimensional array (with D=1,2,3).
 %   [N, R] = BOXCOUNT(C), where C is a D-dimensional array (with D=1,2,3),
 %   counts the number N of D-dimensional boxes of size R needed to cover
-%   the nonzero elements of C. The box sizes are powers of two, i.e., 
+%   the nonzero elements of C. The box sizes are powers of two, i.e.,
 %   R = 1, 2, 4 ... 2^P, where P is the smallest integer such that
 %   MAX(SIZE(C)) <= 2^P. If the sizes of C over each dimension are smaller
 %   than 2^P, C is padded with zeros to size 2^P over each dimension (e.g.,
@@ -72,9 +72,9 @@ end
 % transpose the vector to a 1-by-n vector
 if length(c)==numel(c)
     dim=1;
-    if size(c,1)~=1   
+    if size(c,1)~=1
         c = c';
-    end   
+    end
 end
 
 width = max(size(c));    % largest size of the box
@@ -98,16 +98,16 @@ if p~=round(p) || any(size(c)~=width)
         case 3
             mz = zeros(width, width, width);
             mz(1:size(c,1), 1:size(c,2), 1:size(c,3)) = c;
-            c = mz;            
+            c = mz;
     end
 end
 
 n=zeros(1,p+1); % pre-allocate the number of box of size r
 
 switch dim
-
+    
     case 1        %------------------- 1D boxcount ---------------------%
-
+        
         n(p+1) = sum(c);
         for g=(p-1):-1:0
             siz = 2^(p-g);
@@ -117,9 +117,9 @@ switch dim
             end
             n(g+1) = sum(c(1:siz:(width-siz+1)));
         end
-
+        
     case 2         %------------------- 2D boxcount ---------------------%
-
+        
         n(p+1) = sum(c(:));
         for g=(p-1):-1:0
             siz = 2^(p-g);
@@ -131,9 +131,9 @@ switch dim
             end
             n(g+1) = sum(sum(c(1:siz:(width-siz+1),1:siz:(width-siz+1))));
         end
-
+        
     case 3         %------------------- 3D boxcount ---------------------%
-
+        
         n(p+1) = sum(c(:));
         for g=(p-1):-1:0
             siz = 2^(p-g);
@@ -149,7 +149,7 @@ switch dim
             end
             n(g+1) = sum(sum(sum(c(1:siz:(width-siz+1),1:siz:(width-siz+1),1:siz:(width-siz+1)))));
         end
-
+        
 end
 n = n(end:-1:1);
 r = 2.^(0:p); % box size (1, 2, 4, 8...)
@@ -168,3 +168,16 @@ end
 if nargout==0
     clear r n
 end
+
+fractalDimension = compute_fractal_dimension(n, r);
+end
+
+function [fractal_dimension] = compute_fractal_dimension(n, r)
+% Linear regression according to:
+% http://nl.mathworks.com/help/matlab/data_analysis/linear-regression.html
+% and http://fractalfoundation.org/OFC/OFC-10-5.html
+
+s=-gradient(log(n))./gradient(log(r));
+fractal_dimension = mean(s);
+end
+
