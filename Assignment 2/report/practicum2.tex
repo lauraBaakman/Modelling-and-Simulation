@@ -1,4 +1,4 @@
-\documentclass[twoside, a4paper, twocolumn, leqno, fleqn, 11pt]{article}
+\documentclass[twoside, a4paper, twocolumn, leqno, fleqn, 11pt, final]{article}
 \usepackage[english]{babel}
 \usepackage{a4wide}
 
@@ -54,9 +54,16 @@
 \bibliography{biblio}
 
 % Pseudo code
-\usepackage[algoruled,vlined, linesnumbered, shortend]{algorithm2e}
+\usepackage[algoruled,vlined, shortend]{algorithm2e}
 \usepackage[export]{adjustbox}
 \usepackage{setspace}
+
+\makeatletter
+\newcommand{\nosemic}{\renewcommand{\@endalgocfline}{\relax}}% Drop semi-colon ;
+\newcommand{\dosemic}{\renewcommand{\@endalgocfline}{\algocf@endline}}% Reinstate semi-colon ;
+\newcommand{\pushline}{\Indp\Indp\Indp\Indp}% Indent
+\newcommand{\popline}{\Indm\Indm\Indm\Indm\dosemic}% Undent
+\makeatother
 
 % Temp
 \usepackage[obeyFinal]{todonotes}
@@ -92,12 +99,12 @@
 
 % \todo[inline]{Use compactitem environment for lists}
 
-% \section{Introduction}
-% \input{intro.tex}
+\section{Introduction}
+\input{intro.tex}
 
-% \section{Method}
-% \label{s:method}
-% \input{method.tex}	
+\section{Method}
+\label{s:method}
+\input{method.tex}	
 
 \section{Experiments}
 \label{s:experiment}
