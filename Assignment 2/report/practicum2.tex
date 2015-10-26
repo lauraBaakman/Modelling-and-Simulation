@@ -16,6 +16,13 @@
 
 % Floats
 \usepackage{float}
+\usepackage[section]{placeins}
+
+% \usepackage{titlesec}
+
+% % \titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+% \titlespacing\section{0pt}{10pt plus 2pt minus 2pt}{6pt plus 2pt minus 2pt}
+% \titlespacing\subsection{0pt}{10pt plus 2pt minus 2pt}{6pt plus 2pt minus 2pt}
 
 %Plaatjes
 \usepackage{tikz}
@@ -83,8 +90,6 @@
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.8}
 
-\setlength{\belowcaptionskip}{-10pt}
-
 \crefname{algocf}{algorithm}{algorithms}
 \Crefname{algocf}{Algorithm}{Algorithms}
 \crefname{algocfline}{line}{lines}
@@ -125,6 +130,7 @@
 
 \printbibliography
 \onecolumn
+\setlength{\belowcaptionskip}{-10pt}
 \appendix
 \input{appendix.tex}
 

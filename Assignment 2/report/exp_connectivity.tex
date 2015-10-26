@@ -1,5 +1,5 @@
 %!TEX root = practicum2.tex
-\begin{figure}[b!]
+\begin{figure}%[b!]
 	\centering
 	\begin{subfigure}{0.45\columnwidth}
 		\centering
@@ -24,7 +24,7 @@ We consider two different connectivities, namely four- and eight-connectivity, w
 % Influence of probability
 The results of performing the same experiment as discussed in \cref{ss:exp:probability} with the eight-connectivity mask, are presented in \cref{fig:experiment:conn:mean_std_clusters} and \ref{fig:experiment:conn:p_inf_ratio}. We have changed the range of $p$ to $p = 0.2, 0.21, \dotsc, 0.6$, since even for $p = 0.3$ $P_\infty$ was close to zero. 
 
-\begin{figure}[b!]
+\begin{figure}%[b!]
 	\centering
 	\includegraphics[width=\columnwidth]{./img/assignment_d_p_infinite_ratio_p.pdf}
 	\caption{Ratio of percolating clusters, $P_\infty$, as a function of $p = 0.2, 0.21, \dotsc, 0.6$ when eight-connectivity is used. Ratios are calculated over $r_{max} = 200$ runs on a $41 \times 41$ grid.}
@@ -43,9 +43,6 @@ It should be noted that for some values of $p$, especially larger values there a
 That for higher values of $p$ a percolating cluster is more likely than a finite cluster is confirmed by \cref{fig:experiment:conn:p_inf_ratio}, where we find that only for very low values of $p$ $P_\infty$ is zero, and that $P_\infty$ quickly approaches 1. 
 
 These findings suggest that $p_c$ is much lower when eight-connectivity is used. Based on this, admittedly small experiment, one would guess $p_c$ to be approximately $0.2$ when eight-connectivity is used. More research is needed to find the actual value of $p_c$ for eight-connected clusters.\\
-
-
-
 
 
 % \todo{Influence of size}
